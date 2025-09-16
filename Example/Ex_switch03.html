@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 실습문제03</title>
+</head>
+<body>
+    <button type="button" onclick="chk()">계절 출력</button>
+    <input type="text" id="fo">
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            let fo = Number(document.getElementById('fo').value);
+            console.log(fo)
+
+            let output = document.getElementById('output')
+
+            switch(fo){
+                case 3:
+                case 4:
+                case 5:
+                    output.innerHTML='봄'
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    output.innerHTML='여름'
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    output.innerHTML='가을'
+                    break;
+                case 12:
+                case 1:
+                case 2:
+                    output.innerHTML='겨울'
+                    break;
+                default:
+                    output.innerHTML=''
+                    break;
+            }
+            console.log(output.innerHTML)
+        }
+    </script>
+</body>
+</html>

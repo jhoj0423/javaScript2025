@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 실습문제</title>
+</head>
+<body>
+    <button type="button" onclick="chk()">요일 출력</button>
+    <input type="number" id="week">
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            let week = Number(document.getElementById('week').value);
+            console.log(week)
+
+            let output = document.getElementById('output')
+
+            /* switch에서 true 사용시 case에 조건식 입력 */
+            switch(true){
+                case week == 1:
+                    output.innerHTML='일요일'
+                break;
+                case week == 2:
+                    output.innerHTML='월요일'
+                break;
+                case week == 3:
+                    output.innerHTML='화요일'
+                break;
+                case week == 4:
+                    output.innerHTML='수요일'
+                break;
+                case week == 5:
+                    output.innerHTML='목요일'
+                break;
+                case week == 6:
+                    output.innerHTML='금요일'
+                break;
+                case week == 7:
+                    output.innerHTML='토요일'
+                break;
+                default:
+                    output.innerHTML=''
+                break;
+
+            }
+            console.log(output.innerHTML)
+        }
+    </script>
+</body>
+</html>

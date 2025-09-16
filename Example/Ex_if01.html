@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제</title>
+</head>
+<body>
+    <h1>문제: 입력한 문자가'y'또는 'Y'면 '예',아니면'아니오'</h1>
+    <input type="text" id="txt">
+    <button type="button" onclick="check()">확인</button>
+    <p id="output"></p>
+    <script>
+        function check(){
+            let pri = document.getElementById('txt').value;
+            console.log(pri);
+
+            let res = document.getElementById('output');
+            console.log(res);
+            if(pri=='y'||pri=='Y'){
+                res.innerHTML = '예'
+            }else{
+                res.innerHTML = '아니요'
+            };
+        }
+    </script>
+</body>
+</html>

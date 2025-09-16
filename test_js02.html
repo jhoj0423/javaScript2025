@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트 연습문제</title>
+</head>
+<body>
+    <button onclick="problem2()">문제 2 : 두 수 더하기</button>
+    <p id="p2"></p>
+
+    <script>
+        function problem2(){
+            let pri = document.getElementById('p2')
+            let num1 = 7;
+            let num2 = 8;
+            pri.innerHTML =`합계:${num1+num2}`
+            /* 값에 에러가 있는지 디버깅 하려고 */
+            console.log(`num1:${num1}`,`num2:${num2}`)
+        }
+    </script>
+</body>
+</html>

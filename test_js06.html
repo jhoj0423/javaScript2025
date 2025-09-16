@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1" placeholder="숫자1">
+    <input type="number" id="num2" placeholder="숫자2">
+    <button type="button" onclick="comper()">비교</button>
+    <p id="output"></p>
+
+    <script>
+        function comper(){
+            let pri = document.getElementById('output');
+            let age1 =Number(document.getElementById('num1').value);
+            let age2 =Number(document.getElementById('num2').value);
+            console.log(age1, age2);
+
+            let res1 = `${age1>age2?'true':'false'}`;
+            let res2 = `${age1==age2?'true':'false'}`;
+            pri.innerHTML = `n1>n2 ? ${res1},n1==n2 ? ${res2}`;
+            console.log(`res1 : ${res1}, res2 : ${res2}`);
+
+            /* NaN => Not a Number => 숫자가 아니다 */
+        }
+    </script>
+</body>
+</html>

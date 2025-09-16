@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연산 연습</title>
+</head>
+<body>
+    <h1>자바스크립트 실습문제</h1>
+    <!-- onclick => 버튼을 클릭해라 -->
+    <!-- proble => 함수이름 -->
+    <!-- 버튼을 클릭하면 proble() 함수를 실행하라 -->
+    <button type="button" onclick="proble()">
+        문제1 : 변수와 상수 출력
+    </button>
+    <!-- 결과 화면 출력 하는 곳 -->
+    <p id="p1">안녕하세요</p>
+
+    <!-- 자바 스크립트 영역 : <script>~</script> -->
+    <script>
+        /* 1. proble()함수를 생성한다. */
+        /* 2. 함수를 생성시 반드시 function 명령어 입력 */
+        /* 3. 함수구성 function 함수이름(){} */
+        function proble(){
+            /* id=p1 이라는 태그를 pri 변수에 저장 */
+            let pri = document.getElementById("p1");
+            let name= '홍길동';/* name이라는 변수에 홍길동 이름 저장 */
+            name="개나리";
+            const age=20;
+            console.log(name + age); /* 콘솔창에만 나옴 */
+            /* innerHTML 이란 pri태그에 즉 <p>~</p>사이에 값이 입력되게 하라 */
+            pri.innerHTML =/* (name + '의 나이는' + age + '세 입니다.'); */`이름은 ${name} 의 나이는 ${age}세 입니다`;
+            /* 빽틱 ` ` 사이의 출력할 변수와 문자는 + 안써도 됨*/
+            /* `나이 : ${변수이름} */
+            /* pri.innerHTML = `이름은 ${name} 의 나이는 ${age}세 입니다` */
+        }
+    </script>
+
+</body>
+</html>

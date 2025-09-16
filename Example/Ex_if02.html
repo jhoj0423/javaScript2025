@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제02</title>
+</head>
+<body>
+    <input type="number" id="eng">
+    <input type="number" id="mat">
+    <button type="button" onclick="chk()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            let eng = Number(document.getElementById('eng').value)
+            let mat = Number(document.getElementById('mat').value)
+            console.log(eng,mat)
+
+            let output = document.getElementById('output')
+            if(eng>=50&&mat>=50){
+                output.innerHTML = '통과!';
+                console.log(`통과!`)
+            }else{
+                output.innerHTML = '불합격!';
+                console.log(`불합격!`)
+            }
+
+        }
+    </script>
+</body>
+</html>

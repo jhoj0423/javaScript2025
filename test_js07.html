@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크립트 연습문제04</title>
+</head>
+<body>
+    <input type="number" id="score" placeholder="점수입력">
+    <button type="button" onclick="checkGrade()">등급 확인</button>
+    <p id="output"></p>
+
+    <script>
+        function checkGrade(){
+            let pri = document.getElementById('output');
+            let num = Number(document.getElementById('score').value);
+            console.log(`num ${num}`);
+
+            let res = `등급: ${num>=90?'A':num>=80?'B':num>=70?'C':num>=60?'D':'F'}`;
+            pri.innerHTML=res
+            console.log(`res : ${res}`)
+
+            
+        }
+    </script>
+</body>
+</html>

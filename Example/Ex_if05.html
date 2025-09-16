@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제05</title>
+</head>
+<body>
+    <h1>문제:국어,영어,수학 평균이 70이상이면 "합격",아니면"불합격"</h1>
+    <input type="number" id="ko">
+    <input type="number" id="eng">
+    <input type="number" id="mat">
+    <button type="button" onclick="chk()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            /* 숫자 값을 가져오기위해서 */
+            let ko = Number(document.getElementById('ko').value);
+            let eng = Number(document.getElementById('eng').value);
+            let mat = Number(document.getElementById('mat').value);
+            console.log(`${ko},${eng},${mat}`);
+
+            /* 평균 */
+            let avg =(ko+eng+mat)/3;
+            console.log(avg);
+
+            let output = document.getElementById('output');
+            if(avg>=70){
+                output.innerHTML = '합격!'
+            }else{
+                output.innerHTML = '불합격!'
+            }
+            console.log(output.innerHTML)
+        }
+    </script>
+</body>
+</html>

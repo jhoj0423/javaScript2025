@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>직원 근무 문제</title>
+</head>
+<body>
+    <h3>직원 근무시간 급여 계산</h3>
+    <span>근무 시간 입력</span>
+    <input type="number" id="time">
+    <button type="button" onclick="chk()">급여계산</button>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+
+    <script>
+        /* 전역 변구 : 전지역 안에 사용하는 변수 */
+
+        function chk(){
+            /* 버튼 누르면 인풋의 숫자 값을 가져옴 */
+            let time = Number(document.getElementById('time').value);
+            console.log(time);
+
+            /* output태그 에서 */
+            let output1 = document.getElementById('output1');
+            let output2 = document.getElementById('output2');
+            let output3 = document.getElementById('output3');
+
+            /* 근무 수당 */
+            /* 지역변수 : 지금 현재 function안에서만 사용 가능 */
+            let money = 10000;
+            let pay = time*money;
+            let basepay = 8*money;
+            let realpay = basepay+(pay-basepay)*1.5;
+
+            /* 초과근무 수당 */
+            if(time>8){
+                output1.innerHTML=`급여 :${realpay} 원`
+            }else{
+                output1.innerHTML=`급여 :${pay}원`
+            }
+
+            /* 정상 근무 여부 */
+            switch(true){
+                case (time==0):
+                    output2.innerHTML='출근하지 않았습니다'
+                    break;
+                case (time>0 && time<=8):
+                    output2.innerHTML='정상 근무'
+                    break;
+                case (time>8):
+                    output2.innerHTML='초과 근무'
+                    break;
+            }
+            console.log(output2.innerHTML)
+
+            /* 급여 상태 */
+            let res = `급여상태:${time>0?'급여있음':'무급'}`
+            console.log(res)
+            output3.innerHTML=res;
+            
+        }
+    </script>
+</body>
+</html>

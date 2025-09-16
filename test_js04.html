@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연습 문제</title>
+</head>
+<body>
+    <button onclick="problem4()">문제 4: 조건문</button>
+    <p id="p4"></p>
+
+    <input type="text" id="inputtext" placeholder="숫자입력">
+    <button type="button" onclick="inputpro()">확인</button>
+    <p id="input4"></p>
+
+    <script>
+        function problem4(){
+            let pri = document.getElementById('p4');
+            let num3= 5;
+            const num4 =2;
+            let result = num3%num4 ==1?'홀수입니다':'짝수입니다';
+            console.log(`${result}`);
+            pri.innerHTML = result;
+        }
+        /* input 태그는 입력된 모든 값은 문자 데이터 형식임 */
+        /* input 태그에 입려괸 모든 값을 읽어 올려면 .value 매서드를 사용해야 한다. */
+        function inputpro(){
+            let inputtext = document.getElementById('input4');
+            /* Number() => 괄호안의 인수를 숫자로 변경하는 함수 */
+            let inputtext2 =Number( document.getElementById('inputtext').value);
+            console.log(`input의 입력 값 ${inputtext2}`);
+
+            inputtext.innerHTML = inputtext2 + 5;
+            console.log(`input의 값 더하기 5 : ${inputtext.innerHTML}`);
+
+        }
+    </script>
+</body>
+</html>

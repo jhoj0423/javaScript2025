@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제04</title>
+</head>
+<body>
+    <h1>문제: 사용자가 입력한 숫자가 1과 10사이인지 확인</h1>
+    <input type="number" id="num">
+    <button type="button" onclick="chk()">확인</button>
+    <p id="output"></p>
+    <script>
+        function chk(){
+            let num = Number(document.getElementById('num').value);
+            console.log(num);
+
+            let output = document.getElementById('output')
+            if(num>=1 && num<=10){
+                output.innerHTML = '범위 안에 있음'
+            }else{
+                output.innerHTML = '범위 안에 없음'
+            }
+            console.log(output.innerHTML)
+        }
+    </script>
+</body>
+</html>
