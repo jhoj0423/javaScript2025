@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 while 연습</title>
+</head>
+<body>
+    <script>
+        /* 전위 연산자 ++a */
+        /* a = a + 1; => 1씩누적공식 */
+        /* a=0; 초기값 */
+        /* a = 1; */
+        /* a = 2; */
+        a=1;
+        /* 누적된 후에 b에 저장 */
+        b= ++a;
+
+        console.log(b);
+
+        /* 후의 연산자 a++ */
+        c=1;
+        /* k에 저장된 후에 누적 */
+        k=c++;
+        console.log(k);
+
+        /* 1부터 5까지 출력하는 while 작성 */
+        let num =1
+        /* while은 조건이 false 가 될때 까지 */
+        while(num<=5){
+            console.log(num);
+            /* 1씩 누적하는 코드 */
+            num++;
+        }
+        console.log(`조건 fales 후:${num}`);
+
+        /* 10부터 1까지 거꾸로 출력하기 */
+
+        let num1 = 10;
+
+        while(num1>=1){
+            console.log(num1);
+            num1--;
+        }
+        console.log(`조건 fales 후:${num1}`);
+
+        /* 1부터 20까지 수 중 짝수의 값만 출력 */
+
+        let n = 1;
+        let count = 0; /* 조건의 만족하는 개수세기위한 변수 초기화 */
+        while(n<=20){
+            if(n % 2 == 0){
+                console.log(n);
+                /* 조건에 만족했을때 1씩 누적 */
+                count++;
+            }else{
+
+            }
+
+            n++;
+        }
+        console.log(`조건 fales 후:${n}`)
+        console.log(`짝수의 갯수 : ${count}`)
+
+        /* 1부터 10까지의 합을 구하라 */
+
+        let plus = 1;
+        let sum = 0;
+        while(plus<=10){
+            sum = sum + plus
+            
+            plus++
+        }
+        console.log(`합계 : ${sum}`)
+
+        /* do ~ while문의 조건의 만족 유무를 떠나 */
+        /* 무조건 한번 실행된다 */
+        /* 1번 실행된 후 조건을 인식 한다 */
+        /* true일때 루프돌고, false 일때 루프 멈춤 */
+        let p=1
+        do{
+            console.log('do while')
+        }while(p==0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 연습문제03</title>
+</head>
+<body>
+    <h1>문제 : 사용자 입력 횟수 만큼 Hello 출력</h1>
+    <input type="number" id="num">
+    <button type="button" onclick="chk()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            /* 변하는 값이 아니라 기준값 */
+            let num = Number(document.getElementById('num').value);
+            console.log(num);
+
+            let output = document.getElementById('output');
+            console.log(output)
+            
+            let n = 1;
+            /* 출력하고 싶은게 문자면 공백 */
+            let res = '';
+
+            while(n<=num){
+                res=res + 'Hello<br/>'
+                n++;
+            }
+            output.innerHTML=res
+
+
+
+
+
+
+
+
+        }
+    </script>
+</body>
+</html>
