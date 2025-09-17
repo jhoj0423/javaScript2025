@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>정삼각형 만들기</h2>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output')
+
+        let result = ''
+        for(i=1 ; i<=5 ; i++){
+            /* 공백만 출력하는 for문 */
+            for(let k=5; k>=i; k--){
+                result=result+'&nbsp;'
+            }
+            for(j=1; j<=(i*2-1); j++){
+                result=result+'*'
+                console.log(result+'안')
+            }
+            result=result+'<br/>'
+            console.log(result+'밖')
+        }
+        output.innerHTML=result
+        /* for(i=1 ; i<=6 ; i++){
+            let blank ='';
+            for(let j=1; j<=n-i; j++){
+                result+='#';
+            }
+            result+=result+'<br/>'
+        } */
+
+
+
+    </script>
+</body>
+</html>

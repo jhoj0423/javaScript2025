@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 실습문제</title>
+</head>
+<body>
+    <h3>문제7 : 1부터 ~ n까지의 합</h3>
+    <input type="number" id="num">
+    <button type="button" onclick="chk()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        function chk(){
+            /* 인풋 숫자 */
+            let num =Number(document.getElementById('num').value);
+
+            
+
+            
+            let plus = 0;
+            let res = 0;
+
+            for(plus=1; plus<=num; plus++){
+                res= res+plus;
+            }
+            output.innerHTML = `1부터 ${num} 까지의 합${res}`;
+        }
+        let result=''
+        /* 다중 for문 */
+        /* for문 안에 또 for이 존재 */
+        for(let i=1; i<=20 ; i++){/* 바깥 루프 */
+            for(let j=1; j<=i; j++){/* 안쪽 루프 */
+                /* \n 줄바꿈 기호 */
+                result = result+'*'+'@'+'*'
+            }
+            result=result+'<br/>'
+        }
+        output.innerHTML=result
+    </script>
+</body>
+</html>

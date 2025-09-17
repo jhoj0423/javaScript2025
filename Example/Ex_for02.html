@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제 : 1 부터 10까지의 수중 홀수 만 출력</h1>
+    <p id="output"></p>
+
+    <script>
+        let num = 1;
+
+        let output = document.getElementById('output')
+
+        let res = 0;
+
+        for(num=1 ; num<=10; num++){
+            if(num % 2 ==1){
+                res = res + num +' '
+            }else{}
+            
+        }
+
+        /* while(num<=10){
+            if(num % 2 ==1){
+                res = res + num +' '
+            }else{}
+            num++;
+        } */
+        output.innerHTML=res
+    </script>
+</body>
+</html>

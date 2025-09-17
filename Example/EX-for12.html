@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>직사각형 만들기</h2>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output')
+
+        let result = ''
+        for(let i=1 ; i<=7 ; i++){
+            for(j=1 ; j<=i ; j++){
+                result=result+'&nbsp'+'&nbsp'
+            }
+            for(k=7 ; k>=i ; k--){
+                result=result+'*'
+            }
+
+            result=result+'<br/>'
+        } 
+        output.innerHTML=result
+
+
+    </script>
+</body>
+</html>
