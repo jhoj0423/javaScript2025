@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 기초 연습문제</title>
+</head>
+<body>
+    <h2>문제 : 1~ 10 배열, 짝수만 출력 push 이용</h2>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+
+        let nums = [];
+        /* 결과값 */
+        let result = ''
+
+        for(i=1; i<=10;i++){
+            /* nums의 요소 */
+            nums.push(i)
+            if(nums[i-1] % 2 == 0){
+                /* nums의 index */
+                result=result+nums[i-1]+' '
+            }
+        }
+        output.innerHTML=`5번 : ${result}`
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 기초 연습문제</title>
+</head>
+<body>
+    <h2>문제 : names 배열 모든 요소 for문 출력</h2>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+
+        let names=['jason','Alice','Candy','Chris']
+
+        let result = ''
+        for(i=0;i<=names.length-1;i++){
+            result=result + names[i] + ' '
+        }
+        output.innerHTML=`4번 : ${result}`
+    </script>
+</body>
+</html>

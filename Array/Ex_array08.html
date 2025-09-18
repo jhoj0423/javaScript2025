@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 연습문제</title>
+</head>
+<body>
+    <h2>배열 + for문 +if문 문제</h2>
+    <span>1번 점수 배열 입력(예: 95,67,80,55,100,72)</span>
+    <input type="text" id="score">
+    <button type="button" onclick="chk()">결과 확인</button>
+    <p id="output"></p>
+    <script>
+        let score = [95,67,80,55,100,72]
+        function chk(){
+            let output = document.getElementById('output');
+            /* input에 입력받는 값에 , 가 들어가서 문자, 숫자X */
+            let score = (document.getElementById('score').value);
+
+            /* ,삭제 =>배열이름.split()',' */
+            /* 배열 삭제 후에 문자화 된다 */
+            /* 배열이름.map(Number) => 기존의 배열을 숫자화 하여 다시 배열 */
+            /* javaScript는 문자가 아니라 문자열의 데이터 형식이다 */
+            /* 문자열(String) 객체 */
+            console.log(score);
+            let num = score.split(',').map(Number)
+            
+            let result = ''
+
+            for(i=1;i<=num.length;i++){
+                if(num[i-1]>=90){
+                    result=result+num[i-1]+'점 : A'+'  '
+                }else if(num[i-1]>=80){
+                    result=result+num[i-1]+'점 : B'+'  '
+                }else if(num[i-1]>=70){
+                    result=result+num[i-1]+'점 : C'+'  '
+                }else{
+                    result=result+num[i-1]+'점 : F'+'  '
+                }
+            }
+            output.innerHTML=result
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 연습문제</title>
+</head>
+<body>
+    <h2>배열+for문_if문 문제</h2>
+    <span>4번 온도 배열 입력(예:15,22,30,35,18)</span>
+    <input type="text" id="hot">
+    <button type="button" onclick="chk()">결과확인</button>
+    <p id="output"></p>
+    <script>
+        let temps=[15,22,30,35,18];
+        function chk(){
+            /* id = output 태그를 가진 요소를 output으로 */
+            let output =document.getElementById('output');
+            /* id=hot 인 input에서 입력한 값 */
+            let hot=document.getElementById('hot').value;
+
+            /* 입력값에서 ','을 지우고 입력값은 숫자로 변환 */
+            let temps = hot.split(',').map(Number);
+
+            console.log(temps)
+            /* 결과 값 */
+            let result=''
+
+            /* 반복문 */
+            for(i=0;i<=temps.length-1;i++){
+                /* temps의 i 번째 index가 ~ 조건일때 */
+                if(temps[i]>=30){
+                    /* 결과 */
+                    result+=temps[i]+': 뜨거움 '
+                }else if(temps[i]>=20){
+                    result+=temps[i]+': 적당 '
+                }else{
+                    result+=temps[i]+': 시원 '
+                }
+            }
+            /* output의 HTML의 안에 result를 넣어라 */
+            output.innerHTML=result
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 연습문제</title>
+</head>
+<body>
+    <h2>배열 + for문 + if문 문제</h2>
+    <span>2번 숫자 배열 입력 (예:12,7,5,20,33,18) : </span>
+    <input type="text" id="num">
+    <button type="button" onclick="chk()">결과 확인</button>
+    <p>
+        <span id="output"></span>
+        <span id="output2"></span>
+    </p>
+
+    <script>
+        let number = [12,7,5,20,33,18]
+        function chk(){
+            let output =document.getElementById('output');
+            let output2 =document.getElementById('output2');
+
+            let num = document.getElementById('num').value;
+
+            number = num.split(',').map(Number)
+            console.log(number)
+
+            let result = ''
+            let result2 = ''
+
+            for(i=0; i<=number.length-1;i++){
+                if(number[i] % 2 ==0){
+                    result=result+number[i]+',';
+                }else{
+                    result2=result2+number[i]+',';
+                }
+            }
+
+            output.innerHTML=`짝수: ${result.slice(0,-1)}/`;
+            /* 슬라이스에 end array 음수면 오른쪽에서 왼으로 자른다 */
+            output2.innerHTML=`홀수: ${result2.slice(0,-1)}`;
+        }
+    </script>
+</body>
+</html>

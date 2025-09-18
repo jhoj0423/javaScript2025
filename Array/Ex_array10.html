@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 심화 연습문제</title>
+</head>
+<body>
+    <h2>배열 + for문 + if문 문제</h2>
+    <span>3번 출석 배열 입력(출석,결석,지각)(예:출석,결석,출석,지각,출석):</span>
+    <input type="text" id="going">
+    <button type="button" onclick="chk()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            let output = document.getElementById('output');
+
+            let going = document.getElementById('going').value;
+
+            let result = '';
+
+            console.log(going)  ;
+
+            going = going.split(',');
+            console.log(going);
+
+            for(i=0;i<=going.length-1;i++){
+                /* 메모리까지 가서 비교 === */
+                /* trim() => 왼쪽,오른쪽 공백을 제거하는 함수 */
+                if(going[i].trim() === '출석'){
+                    result=result+'○'+',';
+                }else if(going[i].trim() === '지각'){
+                    result=result+'△'+',';
+                }else if(going[i].trim() === '결석'){
+                    result=result+'X'+',';
+                }
+            }
+            result=result.slice(0,-1);
+            output.innerHTML=result;
+       }
+    </script>
+</body>
+</html>
