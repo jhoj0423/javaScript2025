@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 총 복습문제07</title>
+</head>
+<body>
+    <div class="content">
+        <h2>음식 칼로리 체크</h2>
+        <input type="text" id="food" placeholder="음식을 검색해 주세요">
+        <button type="button" onclick="chk()">칼로리 확인</button>
+        <p id="output"></p>
+    
+
+    </div>
+
+    <script>
+        let menu = ['치킨'+'샐러리'+'피자'+'사과','햄버거','족발']
+        let kcal =[600,200,700,150,400,800]
+
+        function chk(){
+            let output = document.getElementById('output');
+
+            let food = document.getElementById('food').value;
+
+            food=food.split(',')
+
+            console.log(food)
+            let result = ''
+
+            for(let i = 0;i<=food.length-1;i++){
+
+                switch(true){
+
+                    /*           2           피자             */
+                    case kcal[menu.indexOf(food[i])]>=500:
+                        console.log(food[i])
+                        console.log(menu.indexOf(food[i]))
+                        console.log(kcal[menu.indexOf(food[i])])
+                    result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color">고칼로리</span><br/>' 
+                    break;
+                    case kcal[menu.indexOf(food[i])]<500:
+                    result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color2">칼로리</span><br/>' 
+                    break;
+                    default:
+                        result += '메뉴가 없어요<br/>'
+                        break
+
+                }
+
+
+                /* if(kcal[menu.indexOf(food[i])]>=500){
+                    
+                    result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color">고칼로리</span><br/>' 
+                }else if(kcal[menu.indexOf(food[i])]<500){
+                    result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color2">칼로리</span><br/>' 
+                }else{
+                    result += '메뉴가 없어요<br/>'
+                } */
+            }
+            output.innerHTML=result
+        }
+    </script>
+</body>
+</html>

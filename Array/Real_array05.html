@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 총 복습문제05</title>
+    <style>
+        body{
+            background-color: #eee;
+            padding: 0;
+            margin: 0;
+        }
+        .content{
+            background-color: #fff;
+            text-align: center;
+            padding: 15px;
+            width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-sizing: border-box;
+            
+        }
+        .content h2{
+            border-bottom: 2px solid #333;
+            padding-bottom: 30px
+        }
+        .content button{
+            width: 400px;
+            background-color: yellowgreen;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+        .content button:hover{
+            background-color: #333;
+            
+        }
+        .content p{
+            width: 200px;
+            margin: 30px auto;
+            line-height: 30px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .color{
+            color: green;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>영화 평점 분석</h2>
+        <p id="output"></p>
+        <button type="button" onclick="chk()">평점확인</button>
+        
+
+        <script>
+            let movie = ['어벤저스','인셉션','기생충','라라랜드','해리포터','광장'];
+            let score = [9,8,10,7,8,5];
+
+            function chk(){
+                let output = document.getElementById('output');
+
+                let result = '';
+
+                for(let i=0; i<=movie.length-1;i++){
+                    if(score[i]>=8){
+                        result+=movie[i]+' : '+score[i]+'점 <span class="color">추천</span><br/>';
+                    }else{
+                        result+=movie[i]+' : '+score[i]+'점<br/>';
+                    }
+                }
+                output.innerHTML=result;
+            }
+        </script>
+    </div>
+</body>
+</html>

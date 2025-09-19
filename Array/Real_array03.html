@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 총 복습문제03</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: #eee;
+            font-family: sans-serif;
+        }
+        .content{
+            width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+        .content > input{
+            width: 400px;
+            border: 2px solid teal;
+            padding: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .content > button{
+            width: 400px;
+            margin-top: 15px;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            height: 50px;
+            box-sizing: border-box;
+        }
+        .content > button:hover{
+            background-color: teal;
+            border: 2px solid #333;
+            
+            color: #fff;
+            font-weight: 600;
+            
+        }
+        .content > table{
+            border-collapse: collapse;
+            margin: 10px auto;
+            width: 400px;
+            border:2px solid #000;
+            box-sizing: border-box;
+            
+        }
+        .content > table th{
+            background-color: teal;
+            color: #fff;
+            padding: 5px;
+
+        }.content > table td{
+            padding: 5px;
+            
+        }
+        .color{
+            color: rgb(0, 102, 255);
+        }
+        .color2{
+            color: rgb(238, 58, 22);
+        }
+        .color3{
+            color: teal;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>상품 가격 비교</h2>
+        <input type="text" id="itemName" placeholder="가격을 보고자 하는 상품의 이름을 입력해 주세요">
+        <button type="button" onclick="chk()">상품 출력</button>
+        <table border="1" id="table">
+            <tr>
+                <th>상품</th>
+                <th>가격</th>
+                <th>등급</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let item = ['노트북','마우스','모니터','키보드']
+        let pay=[120000,30000,80000,40000]
+
+        function chk(){
+            let itemName = document.getElementById('itemName').value;
+
+            let table = document.getElementById('table')
+            itemName=itemName.split(',')
+
+            console.log(itemName)
+
+            let result = ''
+
+            for(let i=0;i<=itemName.length-1;i++){
+                console.log(itemName[i]+'...')
+                console.log(pay[i]+'...')
+                if(pay[item.indexOf(itemName[i])]>=50000){
+                    result += `<tr><td>${itemName[i]}</td><td>${pay[item.indexOf(itemName[i])]}</td><td><span class="color">고가</span></td></tr>`
+                }else if(pay[item.indexOf(itemName[i])]<=50000){
+                    result += `<tr><td>${itemName[i]}</td><td>${pay[item.indexOf(itemName[i])]}</td><td><span class="color2">저가</span></td></tr>`
+                }else{
+                    result += `<tr><td><span class="color3">없는상품입니다</span></td><td>-</td><td>-</td></tr>`
+                }
+            }
+            
+            table.innerHTML=`<tr><th>상품</th><th>가격</th><th>등급</th></tr>`+result;   
+        }
+    </script>
+</body>
+</html>

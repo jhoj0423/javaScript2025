@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 총 복습문제04</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: #eee;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        .content{
+            background-color: #fff;
+            width: 600px;
+            height: 500px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .content h2{
+            margin-bottom: 20px;
+        }
+        .content button{
+            margin: 0 auto;
+            display: block;
+            width: 300px;
+            height: 40px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        .content button:hover{
+            background-color: yellowgreen;
+            color: #fff;
+        }
+        .content #output{
+            display: inline-block;
+            width: 150px;
+            padding-top: 40px;
+            text-align: left;
+            line-height: 30px;
+            margin: 0 auto;
+        }
+        .content #output span{
+            color: green;
+            position: relative;
+        }
+        .content #output span::after,.content #output span::before{
+            content: '❁';
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>투표 결과</h2>
+        <button type="button" onclick="chk()">투표 집계</button>
+        <p id="output"></p>
+
+        <script>
+            let pre = ['철수','영희','민수','길동','백구']
+            let score = [120,160,90,200,180]
+            let check = 0; // max값의 인덱스번호 출력하여 담을 변수
+            let max = 0
+            function chk(){
+                let output = document.getElementById('output');
+
+                console.log(pre)
+
+                let result =''
+
+                /* 최대값을 구하는 for문 구하기 */
+                for(let j=0;j<=score.length-1;j++){
+
+                    if(score[j] > max){
+                       max=score[j]
+                       check=j
+                    }
+                }
+                console.log(check+'??')
+
+
+
+                /* 출력하는 for문 작성하기 */
+                for(let i=0; i<=pre.length-1;i++){
+                    
+                    if(score[check]==score[i]){
+                        console.log(score[i]+'!!')
+
+                        result += pre[i] + score[i] + '표 <span class="color">우승</span><br/>'
+                    }else{
+                        result += pre[i] + score[i] +'표 <br/>'
+                    }
+                    console.log(score[i])
+                }
+                console.log(score+'**')
+                output.innerHTML=result
+            }
+        </script>
+    </div>
+</body>
+</html>

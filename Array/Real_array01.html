@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 총 복습문제01</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .color{
+            color: green;
+        }
+        .color2{
+            color: red;
+        }
+        button{
+            width: 130px;
+            cursor: pointer;
+            background-color: salmon;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+        button:hover{
+            background-color: tomato;
+            font-weight: 600;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h3>학생성적표</h3>
+    <button type="button" onclick="chk()">성적표 출력</button>
+    <p id="output"></p>
+
+    <script>
+        function chk(){
+            let output = document.getElementById('output')
+
+            let stu = ['철수','영희','민수','수지','준호'];
+            let score = [85,58,92,77,61];
+
+            console.log(score)
+
+            let result=''
+           
+            let colors = document.getElementsByClassName('color')
+
+            for(let i=0; i<=score.length-1;i++){
+               
+                if(score[i]>=60){
+                    result=result+stu[i]+' : '+score[i]+'점 - '+'<span class=color>합격</span><br/>'
+                   
+                }else{
+                    result=result+stu[i]+' : '+score[i]+'점 - '+'<span class=color2>불합격</span><br/>'
+                }
+            }
+            console.log(result)
+           
+
+            output.innerHTML=result
+        }
+    </script>
+</body>
+</html>
