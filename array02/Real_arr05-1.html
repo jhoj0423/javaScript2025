@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원배열 연습문제05-1</title>
+    <style>
+        div{
+            display: flex;
+        }
+        div span{
+            border: 1px solid greenyellow;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>이미지 정렬</h2>
+    <div id="imges"><img src="" alt=""></div>
+
+    <script>
+        let pic=[
+            ['https://picsum.photos/id/1011/400/300','산'],
+            ['https://picsum.photos/id/1025/400/300','강아지'],
+            ['https://picsum.photos/id/1003/400/300','건물'],
+            ['https://picsum.photos/id/1035/400/300','해변'],
+            ['https://picsum.photos/id/1040/400/300','숲'],
+            ['https://picsum.photos/id/1040/400/300','숲'],
+            ['https://picsum.photos/id/1040/400/300','숲']
+        ]
+        let imges=document.getElementById('imges')
+
+        let result=''
+
+        for(let i=0; i<pic.length;i++){
+            
+            for(let j=0;j<pic[i].length-1;j++){
+                result += `<span><img src="${pic[i][j]}" alt=""><br/>${pic[i][j+1]}</span>`
+            }
+            
+        }
+
+        imges.innerHTML=result;
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 연습문제01</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let result = '<table border="1">';
+
+        let table = Array.from(Array(5),()=>new Array(5));
+        
+        let output = document.getElementById('output')
+        let num=1;
+        for(let i=0; i<table.length;i++){
+            
+            for(let j=0; j<table[i].length; j++){
+                table[i][j]=num++
+                console.log(table[i][j])
+                result =result +`<td>${table[i][j]}</td>`
+                console.log(result)
+            }
+            result= `<tr>${result}</tr>`
+        }
+        
+
+
+        output.innerHTML=result;
+
+    </script>
+</body>
+</html>

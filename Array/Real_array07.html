@@ -16,7 +16,7 @@
     </div>
 
     <script>
-        let menu = ['치킨'+'샐러리'+'피자'+'사과','햄버거','족발']
+        let menu = ['치킨','샐러리','피자','사과','햄버거','족발']
         let kcal =[600,200,700,150,400,800]
 
         function chk(){
@@ -29,11 +29,21 @@
             console.log(food)
             let result = ''
 
+            let num = 0;
+            let max = 0;
+
+            for(let j = 0; j<=kcal.length-1; j++){
+                if(kcal[j]>max){
+                    max = kcal[j];
+                    num=j;
+                }
+            }
+
+
+
             for(let i = 0;i<=food.length-1;i++){
 
                 switch(true){
-
-                    /*           2           피자             */
                     case kcal[menu.indexOf(food[i])]>=500:
                         console.log(food[i])
                         console.log(menu.indexOf(food[i]))
@@ -41,7 +51,7 @@
                     result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color">고칼로리</span><br/>' 
                     break;
                     case kcal[menu.indexOf(food[i])]<500:
-                    result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color2">칼로리</span><br/>' 
+                    result += food[i] + ' : ' + kcal[menu.indexOf(food[i])]+'kcal - <span class="color2">저칼로리</span><br/>' 
                     break;
                     default:
                         result += '메뉴가 없어요<br/>'

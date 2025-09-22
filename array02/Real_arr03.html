@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>3.달력 만들기(6X7)</h2>
+    <p id="output"></p>
+
+    <script>
+        let result = '<table border="1">';
+
+        const weekdays = ['일','월','화','수','목','금','토']
+         
+        let output = document.getElementById('output')
+        let calendar = Array.from(Array(6),()=>new Array(7).fill(0))
+        let day = 0;
+        
+        console.log(calendar)
+        result += `<tr>`
+        calendar[0]=weekdays
+        for(let k=0;k<=calendar.length;k++){
+            result += `<td>${calendar[0][k]}</td>`
+        }
+        console.log(result+'^^')
+        result += `</tr>`
+        
+        for(let i=1; i<calendar.length;i++){
+            for(let j=0;j<calendar[i].length;j++){
+                if(day<31){
+                calendar[i-1][j]=day++;
+                result +=`<td>${day}</td>`
+                
+                }else{
+                    result +=`<td></td>`
+                }
+                
+            }   
+            result = `${result}</tr>`
+        }
+        
+        
+        console.log(calendar)
+        output.innerHTML=result;
+
+        /* if(day>lastday)break;  =>break : 멈추고 빠져나와 */
+
+    </script>
+</body>
+</html>
