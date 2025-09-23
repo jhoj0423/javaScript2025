@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+    <style>
+        body{
+            text-align: center;
+            
+        }
+        table{
+            border-collapse: collapse;
+            width: 300px;
+            height: 350px;
+            background-color: #eee;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>달력</h2>
+    <div class="content">
+        <button type="button" onclick="chk1()"></button>
+        <div id="years"></div>
+        <button type="button" onclick="chk1()"></button>
+        <div id="calendar"></div>
+    </div>
+
+    <script>
+        let calendar = document.getElementById('calendar');
+        let years = document.getElementById('years');
+
+        let result = '<table border="1">';
+
+        let wee = ['일','월','화','수','목','금','토'];
+        
+        let days01 = new Date(); 
+        let days02 = new Date(days01)
+        let days03 = new Date(days01)
+        
+        days02.setMonth(days01.getMonth()+1);
+        days02.setDate(0);/* 해당 년월의 마지막날 */
+        console.log(days02.getDate())
+
+        days03.setDate(1);
+        let weekdays= days03.getDay();
+
+        console.log(weekdays)
+        
+        for(let i = 0; i<wee.length;i++){
+            if(weekdays===i){
+                weekdays=wee[i];
+                break;
+            }
+        }
+        console.log(weekdays)/* 해당 년월의 첫 요일 */
+
+
+        
+        let cal = Array.from(Array(6),()=>Array(7).fill(0))
+        
+        cal[0]=wee;
+
+        let num =0;
+
+
+
+        /* 요일 배치 */
+        result += `<tr>`
+        for(let i=0;i<wee.length;i++){
+            result+=`<td>${wee[i]}</td>`
+        }
+        result+=`</tr>`
+
+
+
+        for(let i=0;i<cal.length-1;i++){
+           
+            for(let j=0;j<cal[i].length;j++){
+                if(num<days02.getDate()){
+                    
+                    
+                }else{
+                    
+                }
+            }
+            
+        }
+        
+
+
+
+
+        let result02 =`${days01.getFullYear()}년 ${days01.getMonth()+1}월`
+        
+
+        years.innerHTML=result02;
+        calendar.innerHTML=result;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 코어 객체 설명</title>
+</head>
+<body>
+    <script>
+        /* 객체(object)란 : 자바스크립트에 내장된 함수이다. */
+        /* Array, Date, String, Math 등이 존재한다.*/
+        /* 객체는 new Date ()으로 생성하여 사용한다. */
+
+
+        let today =new Date() /* Date(객체를) new로 생성하여 today변수에 담기 */
+        console.log(`오늘날짜 : ${today}`);
+        /* 오늘날짜 : Tue Sep 23 2025 11:03:57 GMT+0900 (한국 표준시) */
+
+        let OneDate = new Date(86400000);
+        /* 1s = 1,000ms */
+        /* Date(값) => 1970년-1-1 부터 값을 계산 */
+        console.log(OneDate);
+
+        /* Date(인수) => 함수안의 값을 의미한다. */
+        /* 인수 날짜와 시간 문자열로 입력 */
+        let date01 = new Date('sep 08,2025,14:10:00');
+        console.log(date01);
+        /* Mon Sep 08 2025 14:10:00 GMT+0900 (한국 표준시) */
+
+        let date02 = new Date('2025/4/08/14:10:20');
+        console.log(date02);
+
+        /* new Date(year, month, day, hour, minute, second, millisecond) */
+        /* 8월 -> 9월 0부터 시작 */
+        let date03 = new Date(2024,8);
+        console.log(date03,typeof date03);
+        /* Sun Sep 01 2024 00:00:00 GMT+0900 (한국 표준시) 'object' */
+
+        /* Date 생성자 new 연산자 없이 호출 */
+
+        let today02 = Date();
+        console.log(today02,typeof today02);
+
+        /* Tue Sep 23 2025 11:39:01 GMT+0900 (한국 표준시) string */
+        /* 결과 값을 문자열로 반환한다. */
+        /* typeof 타입알려주는*/
+
+
+
+        /* 오늘 날짜/시간 동시에 출력 */
+        let now = Date.now();
+        console.log(now / 86400000 /365)
+        /* 1758595367819 */
+        /* 55.764... => 1970-1-1 + 55 =2025년 */
+
+        /* Date.parse */
+        let d = Date.parse('jan 2, 1970 00:00:00 UTC')/* 세계 협정 시간 */
+        console.log(d)
+
+        /* Date의 메서드를 이용해서 get~ : 출력, Set~ : 수정 */
+        /* getter setter */
+
+        let today03 =new Date()
+        let year01 = today.getFullYear();
+        console.log(`오늘 날짜의 연도 : ${year01}`)
+
+        let today04 = new Date();
+        today04.setFullYear(2000);
+        let year02 = today04.getFullYear();
+        /* setFullYear()수정하고 getFullYear()출력한다. */
+        console.log(year02)
+
+        /* 오늘 날짜의 월을 3월로 변경하고 출력 */
+
+        let today05 = new Date();
+        /* 월은 : 1월이 0 ,12월이 11 */
+        today05.setMonth(2);
+        let month01= today05.getMonth();
+        console.log(month01,today05);
+        
+        /* 월과 일 수정 */
+        let today06 = new Date('2025/09/23');
+        today06.setMonth(11,1);
+        let month02 = today06.getMonth();
+        let day02 =  today06.getDay();
+        let date05 = today06.getDate();
+
+        console.log(month02,day02,date05)
+
+
+        /* 요일 출력 */
+        let today07 = new Date();
+        /* 요일 출력 메서드 getday() : 0(일요일~6(토요일) */
+        /* 요일의 년,월,일 => getDate() : 2025-09-23- 23출력 */
+        let wee = ['일','월','화','수','목','금','토']
+        let weekdays = today07.getDay();
+
+        let result=''
+        /* for문 */
+        for(let i=0; i<wee.length;i++){
+            if(weekdays===i){
+                result=wee[i]
+                break;
+            }
+            
+            
+        }
+        console.log(result)
+    </script>
+</body>
+</html>

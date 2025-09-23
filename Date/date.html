@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 연습문제</title>
+    <style>
+        .content{
+            margin: 20px auto;
+            display: flex;
+            width: 90%;
+            justify-content: space-between;
+            background-color: #eee;
+        }
+        .content > div{
+            display: inline-block;
+            border: 1px solid teal;
+            height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="year">
+            <button onclick="chk1()">현재 연도 출력</button>
+            <p id="output1"></p>
+        </div>
+        <div class="days">
+            <button onclick="chk2()">오늘 요일 출력</button>
+            <p id="output2"></p>
+        </div>
+        <div class="minute">
+            <button onclick="chk3()">현재 시간 출력</button>
+            <p id="output3"></p>
+        </div>
+        <div class="birth">
+            <button onclick="chk4()">특정 날짜까지 남은 일수 계산</button>
+            <p id="output4"></p>
+        </div>
+        <div class="next">
+            <button onclick="chk5()">하루 후, 일주일 후</button>
+            <p id="output5"></p>
+        </div>
+    </div>
+    
+    
+    
+    
+
+    <script>
+        function chk1(){
+            let output1 = document.getElementById('output1');
+
+            let date01 = new Date();
+            let year01 = date01.getFullYear();
+
+            output1.innerHTML=`올해는 ${year01}년 입니다.`
+        }
+        function chk2(){
+            let output2 = document.getElementById('output2');
+
+            let date02 =  new Date();
+
+            let wee = ['일','월','화','수','목','금','토'];
+            let weekdays = date02.getDay();
+
+            let result01 = '';
+
+            for(let i=0; i<wee.length;i++){
+                if(weekdays===i){
+                    result01 = wee[i]
+                }
+            }
+            output2.innerHTML=`오늘은 ${result01}요일 입니다`;
+        }
+        function chk3(){
+            let output3 = document.getElementById('output3');
+
+            let date03 = new Date();
+
+            let hour01 = date03.getHours();
+            let minute01 = date03.getMinutes();
+            let second01 = date03.getSeconds();
+
+            output3.innerHTML=`현재 시간: ${hour01}:${minute01}:${second01}`
+        }
+        function chk4(){
+            let output4 =  document.getElementById('output4')
+
+            let date04 = new Date();
+            let date05 = new Date('2026/04/23');
+
+            date04.setHours(0,0,0,0)
+            date05.setHours(0,0,0,0)
+
+            let days = ((date05.getTime()-date04.getTime())/86400000).toFixed(0);
+            let days01 = ((date05-date04)/86400000).toFixed(0);
+
+            console.log(days)
+            console.log(days01)
+            
+            output4.innerHTML=`생일까지 ${days}일 남았습니다`;
+
+        }
+
+        /* 아래 생성된 함수를 위에서 불러오는 건 자바스크립트에 */
+        /* 호이스팅문제로 안될때가 많다. */
+        function chk5(){
+            let output4 =  document.getElementById('output5')
+
+            let date06 = new Date();
+            let date07 = new Date(date06);
+            let date08 = new Date(date06);
+
+            date07.setDate(date06.getDate()+1)
+            date08.setDate(date06.getDate()+7)
+
+            console.log(date07)
+            console.log(date08)
+
+        
+            
+            output5.innerHTML=`하루후 : ${date07}<br/> 일주일 후 : ${date08}`;
+
+        }
+    </script>
+</body>
+</html>

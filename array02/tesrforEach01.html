@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach문</title>
+</head>
+<body>
+    <script>
+        /* for Each() : 배열전용 각 요소를 한번씩 순회하는 함수 */
+        /* 사용형식 */
+        /* forEach((value(값),index(값위치),array(전체배열))=> {실행문}) */
+        /* 순서가 중요함 : value ->index->array */
+
+        let arr02=[10,20,30]
+        arr02.forEach((value,index,array)=>{
+            console.log(`${index}: ${value}`)/* 0:10 , 1:20 */
+            console.log(`${array}`) /* 10,20,30 */
+        })
+
+        let arr03=['apple','banana','chary'];
+
+        arr03.forEach((value)=>{
+            console.log(value)
+        })
+
+        /* map() => 콜백함수에서 return(반환=되돌려 받는다) 하는 */
+        /*          값들로 새로운 배열을 생성하여 반환한다. */
+        /* 배열전용 순회 함수이다. */
+        let arr05=[1,2,3]
+        /* return반환하는 콜백함수 지정 */
+        let doubled = arr05.map((value) => {
+            console.log('map 값'+value);
+            return value * 10;
+        })
+        console.log('retrun 값'+doubled)
+
+        /* 단어를 대분자로 변경 */
+
+        let spl=['d','i','g','i','m','o','n']
+
+        /* map은 한줄 코딩일때 return 생략가능 */
+        let eng = spl.map((value,i,array) => {
+            console.log(value)
+            /* 함수에 괄호 꼭 넣기 */
+            return value.toUpperCase();
+            /* 리턴만 쓰면 브레이크 */
+        })
+        console.log(eng)
+
+    </script>
+</body>
+</html>
