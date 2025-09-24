@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빙고문제</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #ddd;
+        }
+        .content{
+            width: 300px;
+            height: 500px;
+            margin: 30px auto;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #333;
+        }
+        .content .top{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            height: 40px;
+        }
+        .content .top .cal{
+            background-color: #ddd;
+            width: 60px;
+            height: 20px;
+            margin: 5px auto;
+            border-radius: 10px;
+        }
+        .content > h2{
+            padding-top: 80px;
+            font-size: 34px;
+        }
+        .content .game{
+            border: 2px solid #333;
+            border-radius: 5px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
+            padding: 0;
+            display: flex;
+            overflow: hidden;
+            gap: 0;
+        }
+        .content .game input{
+            border: none;
+            outline: none;
+            width: 80%;
+            height: 100%;
+            padding: 0 20px;
+            color: #fff;
+            
+            
+        }
+        .content .game input:focus{
+            outline: #333;
+
+            background-color: yellowgreen;
+            
+        }
+        .content .game button{
+            background-color: yellowgreen;
+            color: #333;
+            border: none;
+            height: 100%;
+            width: 20%;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .content #output{
+            font-size: 40px;
+            font-weight: 600;
+        }
+        .content #output span{
+            color: yellowgreen;
+            border-top: 3px solid yellowgreen;
+            border-bottom: 3px solid yellowgreen;
+            padding-bottom: 10px;
+        }
+        .content #output02{
+            position: absolute;
+            display: block;
+            width: 110%;
+            height: 40px;
+            padding: 10px 0;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%,50%);
+            color: yellowgreen;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="top">
+            <div class="cal"></div>
+        </div>
+        <h2>숫자 맞추기 게임!</h2>
+        <p>1에서 100사이의 수를 입력하세요</p>
+        <div class="game">
+            <input type="text" id="input">
+            <button type="button" onclick="chk()">확인</button>
+        </div>
+        
+        <p id="output"></p>
+        <p id="output02"></p>
+    </div>
+    <script>
+        let Correct = Math.floor(Math.random()*100)
+        let output2 = document.getElementById('output02')
+        let count =0;
+        function chk(){
+            let output = document.getElementById('output')
+            
+            
+
+            let hint = ['Down','Up','Bingo'];
+
+            console.log(Correct);
+
+            
+            let num = Number(document.getElementById('input').value);
+            let result =''
+
+            if(Correct == num){
+                result = `<span>${hint[2]}!</span>`
+            }else if(Correct > num){
+                result = hint[1]+'!'
+            }else{
+                result = hint[0]+'!'
+            }
+
+            
+            
+            output.innerHTML=`${result}`
+            count+=1
+            console.log(count)
+            output2.innerHTML=`시도 횟수 :${count}회`
+
+        }
+        
+    </script>
+</body>
+</html>

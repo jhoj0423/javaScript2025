@@ -87,22 +87,20 @@
         result+=`</tr>`
 
 
-        
-        for(let i=startDate;i<lastDay;i++){         
-            for(let j=0;j<cal[i].length;j++){
-                
+        /*             1          31       */
+        for(let i=startDate; i<lastDay ;i++){     
+            /*                 */    
+            for(let j=0;j<cal.length-1;j++){
+                /*   0        1 */
+                cal[num][firstweek]=i
+                num++
             }
+            
         }
         
+        console.log(cal+'^^')
 
 
-
-
-        let result02 =`${days01.getFullYear()}년 ${days01.getMonth()+1}월`
-        
-
-        years.innerHTML=result02;
-        calendar.innerHTML=result;
 
 
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 기본 설명</title>
+</head>
+<body>
+    <script>
+        let num = 3.1
+        let num2 = 5.7
+        let num3 = 30.1234
+        /* Math의 프로퍼티는 데이터 타입 숫자이다. */
+        console.log(Math.ceil(num))
+        console.log(Math.ceil(num2))
+        console.log(Math.floor(num2))
+        console.log(Math.floor(num))
+        console.log(num.toFixed(0))
+        console.log(typeof num.toFixed(0))
+        /* toFixed() => 숫자로 변경 Number */
+        console.log(Number(num2.toFixed(0)))
+
+        /* round()프로퍼티는 소수 첫번째 자리 */
+        /* 5이상이면 반올림 함,아니면 안함 */
+        console.log(Math.round(num))
+        console.log(Math.round(num2))
+        console.log(Math.round(num3,2))
+
+        console.log('소수자리수'+Math.round(-3))
+        /* 절댓값 */
+        console.log('abs'+Math.abs(-3))
+        console.log("제곱근" + Math.sqrt(16))
+        /* 난수 발생 0~1 까지 수를 무작위로 출력 */
+        /* rendom()난수 발생 프로퍼티 */
+        console.log(Math.random())
+        console.log(Math.random())
+        /* 0부터 ~ 100 */
+        console.log(Math.floor( Math.random()*100))
+        /* 1부터 ~ 100까지 난수 발생 */
+        console.log(Math.floor(Math.random()*100)+1)
+        console.log(Math.max(-1,4,3,-5))
+        console.log(Math.min(-1,4,3,-5))
+    </script>
+</body>
+</html>

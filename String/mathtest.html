@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 연습문제</title>
+</head>
+<body>
+    <div class="content">
+        <div class="test01">
+            <h2>1.랜덤 이름 뽑기</h2>
+            <button type="button" onclick="chk01()">정답보기</button>
+            <p id="output01"></p>
+        </div>
+        <div class="test02">
+            <h2>2.랜덤 문자열 추출</h2>
+            <button type="button" onclick="chk02()">정답보기</button>
+            <p id="output02"></p>
+        </div>
+        <div class="test03">
+            <h2>3.단어 길이 비교</h2>
+            <button type="button" onclick="chk03()">정답보기</button>
+            <p id="output03"></p>
+        </div>
+        <div class="test04">
+            <h2>4.랜덤 비밀번호 생성기(5글자)</h2>
+            <button type="button" onclick="chk04()">정답보기</button>
+            <p id="output04"></p>
+        </div>
+        <div class="test05">
+            <h2>5.문자열 공백 제거 후 길이 출력</h2>
+            <button type="button" onclick="chk05()">정답보기</button>
+            <p id="output05"></p>
+        </div>
+    </div>
+
+    <script>
+        function chk01(){
+            let output01 = document.getElementById('output01');
+
+            let name = ['철수','영희','민수','지영','수현']
+
+            /*             0     1       2      3     4 */
+
+            let num01 = Math.floor(Math.random()*5)
+                                   /* 0~1 */
+            console.log(num01)
+
+            output01.innerHTML=name[num01]
+        }
+        function chk02(){
+            let output02 = document.getElementById('output02');
+
+            let txt = "JavaScript"
+
+            let num02 = Math.floor(Math.random()*10)
+            console.log(num02)
+            output02.innerHTML=txt[num02]
+        }
+        function chk03(){
+            let output03 = document.getElementById('output03');
+
+            let str01 = "apple"
+            let str02 = "watermelon"
+
+            let long = ''
+            if(str01.length>str02.length){
+                long += str01
+            }else if(str01.length<str02.length){
+                long += str02
+            }
+
+            let max = Math.max(str01.length,str02.length)
+
+            output03.innerHTML=`더 긴 단어:${long} (길이 : ${max})`
+        }
+        function chk04(){
+            let output04 = document.getElementById('output04');
+
+            let pas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            
+            
+            let password =''
+            for(let i=0 ; i<5 ;i++){
+                let scrNum_i = Math.floor(Math.random()*pas.length);
+                password+= pas[scrNum_i]+''
+                console.log(scrNum_i);
+            }
+            
+            
+            output04.innerHTML=password;
+        }
+        function chk05(){
+            let output05 = document.getElementById('output05');
+
+            let txt05 = "   Hello JavaScript  "
+
+            output05.innerHTML=`공백 제거 후 : ${txt05.trim()}, 길이: ${txt05.trim().length}`
+        }
+    </script>
+</body>
+</html>

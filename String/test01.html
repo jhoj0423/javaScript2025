@@ -40,7 +40,59 @@
         /* String데이터 타입은 공백도 문자다. */
         /* document.write('str03:' + str03 + '<br/>') */
         /* concat()프로퍼티는 문자 합치기(한줄로 나열) */
-        document.write(str02.concat(str03)+'<br/>')
+        document.write(str02.concat(str03)+'<br/>');
+        document.write(str02+str03+'<br/>');
+        /* j라는 문자가 몇번째 위치에 있는지 index번호 출력  */
+        document.write(str02.indexOf('j')+'<br/>');
+        /* slice(start , end) => 문자 자르기 end-1 까지 자름 */
+        document.write(str02.slice(5,8)+'<br/>');
+        /* substr(start , length) : 시작부터 길이까지 자르기 */
+        document.write(str02.substr(5,8)+'<br/>');
+        /* replace(찾을 문자, 바꿀문자) => 찾을문자를 바꿀문자로 변경한다 */
+        document.write(str02.replace('jlaj','and')+'<br/>');
+        /* Str02.repeat(문자, 반복할 횟수) => 문자를 반복할 횟수만큼 출력 */
+        document.write(str02.repeat(3)+'<br/>');
+        /* 좌 우 공백을 제거 단, 중앙에 공백은 제거 안됨 */
+        document.write('  korean '.trim()+'<br/>');
+
+
+        /* 문자열 "hello javaScript"의 길이를 세어 주세요 */
+
+        let txt = "hello java Script";
+        
+        console.log(txt.length);
+
+        /* txt에서 첫번째 문자와, 7번째 문자만 추출 */
+
+        console.log(txt[0],txt[6]);
+
+        /* txt를 이용해서 javaScript를 추출 */
+        /* 위치는 index */
+        console.log(txt.slice(6,17));
+
+        /* txt에서 java라는 문자가 시작되는 위치를 찾아서 출력*/
+        /* indexof로 문자의 위치를 추출하려 하였으나 -1이 출력됨은 문자가 존재X */
+        console.log(txt.indexOf('java'))
+
+        let txt02 = "programming is fun"
+
+        console.log(txt02.includes('fun'))
+
+        let txt03 = "I like Java"
+
+        console.log(txt03.replace('Java','JavaScript'))
+
+        let txt04 = " Hello World "
+
+        console.log(txt04.trim())
+
+        let txt05 = "apple,banana,grape"
+        console.log(txt05.split(',')[0])
+
+        let txt06 ="Hello"
+        let txt07 ="World"
+
+        console.log(txt06.concat(' ').concat(txt07))
 
     </script>
 </body>
