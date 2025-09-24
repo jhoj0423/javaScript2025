@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 기초연습문제02</title>
+</head>
+<body>
+    <div class="content">
+        <div class="item01">
+            <h2>날짜 비교</h2>
+            <p id="output01"></p>
+            <button type="button" onclick="chk01()">문제6</button>
+        </div>
+        <div class="item02">
+            <h2>월의 마지막날 구하기</h2>
+            <p id="output02"></p>
+            <button type="button" onclick="chk02()">문제7</button>
+        </div>
+        <div class="item03">
+            <h2>특정요일 찾기</h2>
+            <p id="output03"></p>
+            <button type="button" onclick="chk03()">문제8</button>
+        </div>
+        <div class="item04">
+            <h2>요일에 따라 메시지 출력</h2>
+            <p id="output04"></p>
+            <button type="button" onclick="chk04()">문제10</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function chk01(){
+            
+            let days01 = new Date('2025/09/23')
+            let days02 = new Date('2025/12/25')
+
+            console.log(days01)
+            console.log(days02)
+
+            let year01 = days01.getFullYear()*100000;
+            let year02 = days02.getFullYear()*100000;
+
+            let month01 = days01.getMonth()*100;
+            let month02 = days02.getMonth()*100;
+
+            let date01 = days01.getDate();
+            let date02 = days02.getDate();
+
+            let result=''
+
+            if(year01+month01+date01>year02+month02+date02){
+                result+=`${days01}가 미래입니다.`
+            }else if(year01+month01+date01<year02+month02+date02){
+                result+=`${days02.toLocaleDateString()}가 미래입니다`
+            }else{
+                result+=`두 날짜는 같습니다`
+            }
+            console.log(result);
+
+            let output01 = document.getElementById('output01');
+
+            output01.innerHTML=result;
+        }
+        function chk02(){
+            let output02 = document.getElementById('output02')
+            let date02 = new Date();
+            let lastdate02 = new Date(date02);
+            
+            
+            lastdate02.setMonth(date02.getMonth()+1)
+            lastdate02.setDate(0)
+
+            console.log(lastdate02.getDate())
+
+            output02.innerHTML=`${date02.getMonth()+1}월의 마지막 날은 ${lastdate02.getDate()}입니다`
+
+
+        }
+        function chk03(){
+            let output03 = document.getElementById('output03');
+            let date03 = new Date('2025/09');
+            /* 이번달 첫날의 기준 */
+            let startDate03 = new Date(date03);
+
+            /* 이번달 첫날 */
+            startDate03.setDate(1);
+            /* 이번달 첫날의 요일 */
+            let days03 = startDate03.getDay();
+
+            /* 금요일은 기준 */
+            let friday = new Date(date03);
+            let Days = (6-days03)
+            /* 첫주 금요일 계산 */
+            if(Days<=0){
+                friday.setDate(13-days03);
+            }else{
+                friday.setDate(6-days03);
+            }
+
+            /* let startweek = startdate03.getDay() */
+
+            console.log(startDate03.getDay());
+            console.log(friday);
+
+            output03.innerHTML=`이번달 첫번째 금요일은 ${friday.getDate()}일 입니다`;
+
+        }
+        function chk04(){
+            /* output04로 출력 */
+            let output04 = document.getElementById('output04');
+            /* 오늘 */
+            let date04 = new Date("2025/09/26");
+
+            /* 오늘의 요일 */
+            let weekdays04 = date04.getDay();/* 3 = 수요일  */
+
+            let result04 =''
+
+            if(weekdays04 <6 && weekdays04 > 0){
+                result04+=`열심히 일하는 날!!`
+            }else{
+                result04+=`주말이에요`
+            }
+
+            console.log(weekdays04)
+
+            output04.innerHTML=result04;
+
+        }
+    </script>
+</body>
+</html>

@@ -22,9 +22,9 @@
 <body>
     <h2>달력</h2>
     <div class="content">
-        <button type="button" onclick="chk1()"></button>
+        <button type="button" onclick="backchk()">&gt;</button>
         <div id="years"></div>
-        <button type="button" onclick="chk1()"></button>
+        <button type="button" onclick="nextchk()">&lt;</button>
         <div id="calendar"></div>
     </div>
 
@@ -37,36 +37,48 @@
         let wee = ['일','월','화','수','목','금','토'];
         
         let days01 = new Date(); 
-        let days02 = new Date(days01)
-        let days03 = new Date(days01)
+        let lastDay = new Date(days01)
+        let startweek = new Date(days01)
         
-        days02.setMonth(days01.getMonth()+1);
-        days02.setDate(0);/* 해당 년월의 마지막날 */
-        console.log(days02.getDate())
+        let startDate=days01.getDate(1)
 
-        days03.setDate(1);
-        let weekdays= days03.getDay();
+        lastDay.setMonth(lastDay.getMonth()+1);
+        lastDay.setDate(0);/* 해당 년월의 마지막날 */
 
-        console.log(weekdays)
+        console.log(lastDay.getDate())
+
+        startweek.setDate(1);
+        let firstweek= startweek.getDay();
+
+        console.log(startweek)
         
         for(let i = 0; i<wee.length;i++){
-            if(weekdays===i){
-                weekdays=wee[i];
+            if(firstweek===i){
+                weekDays=wee[i];
                 break;
             }
         }
-        console.log(weekdays)/* 해당 년월의 첫 요일 */
-
+        console.log(weekDays)/* 해당 년월의 첫 요일 */
+        console.log(firstweek)
 
         
-        let cal = Array.from(Array(6),()=>Array(7).fill(0))
+        let cal = Array.from(Array(6),()=>new Array(7).fill(0))
         
-        cal[0]=wee;
+       
 
         let num =0;
 
+        for(let i=0; i<cal.length;i++){
+            for(let j=0;j<cal[i],length;j++){
+                cal[i][j]+=''
+            }
+        }
+        console.log(cal)
 
 
+
+
+        cal[0]=wee;
         /* 요일 배치 */
         result += `<tr>`
         for(let i=0;i<wee.length;i++){
@@ -75,18 +87,11 @@
         result+=`</tr>`
 
 
-
-        for(let i=0;i<cal.length-1;i++){
-           
+        
+        for(let i=startDate;i<lastDay;i++){         
             for(let j=0;j<cal[i].length;j++){
-                if(num<days02.getDate()){
-                    
-                    
-                }else{
-                    
-                }
+                
             }
-            
         }
         
 
@@ -98,6 +103,15 @@
 
         years.innerHTML=result02;
         calendar.innerHTML=result;
+
+
+
+        function backchk(){
+            /* 캘린더를 호출 하고 그 안에서 month 값에 -1을 한다*/
+            /* 년도가 바뀌었을때는 month 값에 -를 하면 어캐되지? */
+            /* 일단 위에를 안적어서 그냥 적을껄 */
+        }
+
     </script>
     
 </body>

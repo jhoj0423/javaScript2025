@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strign 객체 설명</title>
+</head>
+<body>
+    <script>
+        /* let str = "hello"는 new로 생성한 객체(object)는 아니지만 */
+        /* String(래퍼 Object)이기때문에 */
+        /* String Object가 사용하는 모든 프로퍼티(=메서드)를 */
+        /* 사용할 수 있다. */
+        /* 이유는 자바스크립트가 일반 String을 객체화 하여 변형하기 때문이다 */
+
+        let str = "Hello" /* 데이터 타입은 String이다 */
+        console.log(`데이터 타입: ${typeof str}`);
+        console.log(`${str.charAt(0)}`);
+        console.log(`${str.charAt(1)}`);
+        console.log(`${str.charAt(2)}`);
+        console.log(`${str.charAt(3)}`);
+        console.log(`${str.charAt(4)}`);
+        console.log(str[0]);
+
+        for(let i=0; i<str.length; i++){
+            console.log(`${str.charAt(i)}`)
+        }
+        for(let i=0; i<str.length; i++){
+            console.log(str[i])
+        }
+
+
+        let str02 = new String('dsk jlaj fal');
+        let str03 = "!";
+
+        /* 태그없이 브라우저에 출력하는 명령어 */
+        document.write('str02:' + str02 + '<br/>')
+        document.write('str03:' + str03 + '<br/>')
+        document.write(str02.charAt(3) + '<br/>')
+        /* String데이터 타입은 공백도 문자다. */
+        /* document.write('str03:' + str03 + '<br/>') */
+        /* concat()프로퍼티는 문자 합치기(한줄로 나열) */
+        document.write(str02.concat(str03)+'<br/>')
+
+    </script>
+</body>
+</html>
