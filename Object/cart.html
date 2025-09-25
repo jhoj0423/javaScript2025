@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object 심화문제</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            margin: 30px;
+            background-color: transparent;
+            background-color: #eee;
+
+        }
+        .content{
+            background-color: peru;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 750px;
+            margin: 0 auto;
+            box-shadow: 0 0 3px #333;
+
+        }
+        .content .eyes{
+            height: 40px;
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            margin: 60px auto 0 ;
+        }
+        .content .eyes .left_eyes,.content .eyes .right_eyes{
+            height: 30px;
+            width: 90px;
+            background-color: #000;
+            border-radius: 50% 50% 0 0;
+        }
+        .content h2{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .content table{
+            width: 700px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .content td, .content th{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 2px solid #000;
+        }
+        th{
+            color: #fff;
+            background-color: #333;
+        }
+        button{
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            line-height: 22px;
+        }
+        .plus{
+            background-color: green;
+            color: #fff;
+        }
+        
+        .minus{
+            background-color: orange;
+            color: #fff;
+        }
+        
+        .remove{
+            background-color: tomato;
+            color: #fff;
+        }
+        .content #total{
+           text-align: right;
+           margin:20px 30px;
+           font-weight: 600;
+           color: #fff;
+            
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="eyes">
+            <div class="left_eyes"></div>
+            <div class="right_eyes"></div>
+        </div>
+        <h2>장바구니</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>상품명</th>
+                    <th>가격</th>
+                    <th>수량</th>
+                    <th>합계</th>
+                    <th>조작</th>
+                </tr>
+            </thead>
+            <tbody id="cartBody">
+            
+            </tbody>
+        </table>
+        <div id="total">총 금액: 0원</div>  
+        
+        <script>
+            /* 장바구니 구현 데이터 */
+            let cart = [
+                {id:1,name:'노트북',price:1000000,quantity:1},
+                {id:2,name:'마우스',price:20000,quantity:2},
+                {id:3,name:'키보드',price:50000,quantity:1},
+            ];  
+
+            /* 장바구니를 cartBody에 들어가는 table 구현*/
+            let num = [0,1,2]
+            let num1 = [1]
+            
+            let cartBody = document.getElementById('cartBody');
+            let totals = document.getElementById('total')
+
+            function renderCart(){
+                
+                
+                
+                total=0;
+                let result = '';
+                
+                for(let i=0 ; i<cart.length; i++){
+                    let c = cart[i]
+                    result += `<tr>
+                        <td>${c.name}</td>
+                        <td>${c.price}</td>
+                        <td>${c.quantity}</td>
+                        <td>${c.price*c.quantity}</td>
+                        <td>
+                            <button type="button" class="plus" onclick="increase(${i})">+</button>
+                            <button type="button" class="minus" onclick="decrease(${i})">-</button>
+                            <button type="button" class="remove" onclick="remove(${i})">X</button>
+                            </td>
+                        </tr>`
+                    total+=(c.price*c.quantity)
+                }
+
+                cartBody.innerHTML = result;
+                totals.innerHTML=`총 금액 : ${total}원`;
+            }
+            
+            
+
+            function increase(num){
+                
+                
+               
+                console.log(cart[num].quantity)
+                if(cart[num].quantity>=10){
+                    alert('더이상 증가 불가능')
+                }else{
+                     cart[num].quantity+=1
+                }
+                renderCart();
+            }   
+            function decrease(num){
+                
+                if(cart[num].quantity<=1){
+                    alert('수량은 최소 1개 이상이어야 합니다.')
+                }else{
+                    cart[num].quantity-=1
+                }
+                
+                console.log(cart[num].quantity)
+                renderCart();
+            }   
+            
+            function remove(num){
+                console.log(cart[num])
+
+                cart.splice(num,1)
+
+                renderCart();
+                
+            }   
+            renderCart();
+            
+            
+        </script>
+    </div>
+</body>
+</html>

@@ -27,6 +27,11 @@
             <p id="output04"></p>
             <button type="button" onclick="chk04()">문제10</button>
         </div>
+        <div class="item05">
+            <h2>시간 차 계산</h2>
+            <p id="output05"></p>
+            <button type="button" onclick="chk05()">문제9</button>
+        </div>
     </div>
     
 
@@ -127,6 +132,21 @@
             console.log(weekdays04)
 
             output04.innerHTML=result04;
+
+        }
+
+        function chk05(){
+            let date05 = new Date();
+
+            let hours = date05.getHours();
+            let minute = date05.getMinutes();
+            let second = date05.getSeconds();
+
+            let max = Math.max(hours,18)
+            let min = Math.min(hours,18)
+
+            output05.innerHTML=`${max-min}시간 ${minute}분 ${second}초 차이가 있습니다.`
+
 
         }
     </script>

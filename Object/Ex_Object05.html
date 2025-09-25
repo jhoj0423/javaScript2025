@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object 연습문제05</title>
+    <style>
+        span{
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>2.쇼핑몰 장바구니 총액 계산</h2>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        let cart = [
+            {id:1,name:'노트북',price:1000000,quantity:1},
+            {id:2,name:'마우스',price:20000,quantity:2},
+            {id:3,name:'키보드',price:50000,quantity:1},
+        ];
+
+        let output = document.getElementById('output');
+
+        let total = 0;
+        let result='';
+
+        for(let i=0; i<cart.length; i++){
+            let c = cart[i]
+            result += `${c.name}금액 : ${(c.price*c.quantity).toLocaleString('ko-kr')}원</br>`
+            total+= c.price*c.quantity
+            console.log(total)
+        }
+        result += `<span>장바구니 총 금액 ${total.toLocaleString('ko-kr')}원</span>`
+
+        output.innerHTML=result;
+    </script>
+</body>
+</html>

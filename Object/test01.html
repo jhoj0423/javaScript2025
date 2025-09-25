@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>book객체</h1>
+    <hr>
+    <div id="view"></div>
+    <script>
+        /* Object 생성방식 */
+        /* let qustndlfma = { title:값1, name:값2, price:값3 } */
+        /* title => key */
+        /* 값1 = value */
+        /* 변수 : book */
+        /* book 안의 key:value 존재한다 */
+        let book = {
+            title:'JaveScript', author:'홍길동',page:500,price:15000,
+            /* book 객체 function()의 값을 입력할 수 있다. */
+            info:function(){
+                /* alert("문자") : 브라우저에서 메시지를 보여주는 창 */
+                alert(`${this.title}책의 분량은 ${this.page}쪽입니다.`)
+            }
+        }
+        /* 함수호출 */ /* 위치 중요!! */
+        book.info();
+
+        console.log(book)
+        /* book이라는 객체으ㅔ title로 접근하는 방법 */
+        /* 객체이름.프로퍼티 => book.title */
+        console.log(book.title)
+        console.log(book.page)
+
+
+        /* DOM : HTML 태그에 javascrip가 접근하기위한 방법 */
+        /* document.querySelector('.'),('#') = > 둘다 사용 가능한 DOM 메소드 */
+        let bookInfo =  document.getElementById('view');
+        /*  let bookinput =  document.getElementsByClassName('view'); */
+        /* let bookinput =  document.querySelector('view'); */
+
+        bookInfo.textContent = `${book.title}의 저나는 ${book.author}이고, 책의 총 페이지수는 ${book.page}페이지 이고, 금액은${book.price}이다.`
+    </script>
+</body>
+</html>
