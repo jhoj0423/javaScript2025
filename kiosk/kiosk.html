@@ -49,61 +49,116 @@
 
 
         /* msnus 배열의 수 만큼 1씩 커지는 배열 만들기 */
-        let num = new Array(menus.length).fill(0);
+        let order = new Array(menus.length).fill(0);
 
         for(let i=0; i<menus.length;i++){
-            num[i]+=1+i
+            order[i]+=1+i
         };
-
-        console.log(num);
-
         
+        console.log(order);
+        
+
+        let orderlist = []
         let menuBox = document.querySelector('.menubox');
         let orderBox = document.querySelector('.orderbox');
-
+        let pay = document.querySelector('.pay')
+        
         /* 메뉴 박스 요소 */
         function cafe(){
 
             let menuResult = '';
-
+            
             for(let i=0; i<menus.length;i++){
                 let m = menus[i] 
                 menuResult+=`<ul class="item" onclick="select(${i})">
-                    <li class="type"><span>${m.type}</span></li>
+                    <li class="type"><span class="${m.type}">${m.type}</span></li>
                     <li class="item_img"><img src="./${m.type}.png" alt="menu${i}"></li>
                     <li><p>${m.name}</p><p>${m.price}</p></li>
-                        </ul>`
+                        </ul>`;
+                
             };
+            
             menuBox.innerHTML=menuResult;
             
         }
+
+
         let orderResult = ''
         /* 메뉴 선택시 주문내역 */
-        function select(num){
-            
-            
-            let m2 = menus[num];
-            
-            orderResult += `<p>${m2.name}(${m2.type})${m2.quantity}개, ${(m2.price*m2.quantity).toLocaleString('ko-kr')}원</p></br>`
-            orderResult += `<div class="num_btn">
-                <button type="button" onclick="plusbtn(${num})">+</button>
-                <button type="button" onclick="minusbtn(${num})">-</button>
-                <button type="button" onclick="removebtn(${num})">선택취소</button>
-                </div>`;
+        function select(order){
+          console.log('a')
+          
+          orderlist.push(menus[order]);
 
+          
+          let orderResult = ''
+
+          let total = 0;
+          for(let i=0; i<orderlist.length;i++){
+            let m2 = orderlist[i]
+            orderResult +=
+            
+            `<div class ="orders">
+              <p><span class="item_name">${m2.name}</span><span ="item_type">(${m2.type})</span>
+              <span class ="item_many">${m2.quantity}</span>개, 
+              <span class="item_pay">${(m2.price*m2.quantity).toLocaleString('ko-kr')}<span>원</p>
+                <div class="num_btn">
+                  <button type="button" onclick="plmibtn(${i},${true})">+</button>
+                  <button type="button" onclick="plmibtn(${i},${false})">-</button>
+                  <button type="button" onclick="removebtn(${i})">선택취소</button>
+                 </div>
+            </div>`
+            
+            console.log(orderlist[i])
+            total+=m2.price*m2.quantity
+          }
+        
+          
+          orderBox.innerHTML = orderResult;
             
             
-            orderBox.innerHTML = orderResult;
+            
+            pay.innerHTML=`${total.toLocaleString('ko-kr')}원`
             cafe()
             
         }
-
-        function plusbtn(num){
-            orderResult += ''
-            console.log(num);
-            menus[num].quantity+=1;
+      
+      
+      let isbool = false
+       function plmibtn(order, isbool){
+        let item_many = document.querySelector('.item_many')
+        let item_pay = document.querySelector('.item_pay')
+         if(isbool === true){
+             orderlist[order].quantity+=1;
+             menus[order].quantity = orderlist[order].quantity;
+             console.log('플러스'+orderlist[order].quantity)
+             item_many.innerHTML=orderlist[order].quantity
+             item_pay.innerHTML=(orderlist[order].quantity*orderlist[order].price).toLocaleString('ko-kr')+'원';
+             console.log(order+'오더 값')
+             console.log(orderlist)
             
-            select(num);
+         }else{
+             if(orderlist[order].quantity>1){
+                orderlist[order].quantity-=1;
+                 console.log('마이너스'+orderlist[order].quantity)
+                 item_many.innerHTML=orderlist[order].quantity
+                 item_pay.innerHTML=(orderlist[order].quantity*orderlist[order].price).toLocaleString('ko-kr')+'원';
+                 console.log(order+'오더 값')
+              }
+         }
+         
+         
+         console.log(item_many+"갯수")
+       }
+
+      /*   삭제 취소 ====================================================== */
+
+        
+      /* 선택 취소 버튼 */
+        function removebtn(order){
+            
+            orderlist.splice(order,1)
+            select(order);
             
         }
 

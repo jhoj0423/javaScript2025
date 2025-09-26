@@ -6,47 +6,84 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
-body{}
+body{
+    background-color: #eee;
+}
 .wrap{
     width: 900px;
     height: 700px;
-    margin: 0 auto;
+    margin: 20px auto;
     position: relative;
     display: flex;
-
+    background-color: wheat;
+    border-radius: 20px 20px 0 0;
 
 }
 .wrap .order_menu{
     height: 700px;
     padding: 5px;
+    box-sizing: border-box;
 }
-.wrap .order_menu > h2{}
-.wrap .order_menu > p{}
+.wrap .order_menu > h2{
+    text-align: right;
+    margin-right: 20px;
+}
+.wrap .order_menu > p{
+    text-align: right;
+    margin-right: 20px;
+}
 .wrap .order_menu .section1{}
-.wrap .order_menu .section1 >h2{}
+.wrap .order_menu .section1 >h2{
+    background-color: #692300;
+    display: inline-block;
+    padding: 8px 15px;
+    color: burlywood;
+    border-radius: 20px 20px 0 0;
+    font-size: 14px;
+}
 .wrap .order_menu .section1 .menubox{
     width: 700px;
-    background-color: #ccc;
+    background-color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
+    border: 1px solid #692300;
+    border-radius: 0 0 20px 20px ;
 }
 .wrap .order_menu .section1 .menubox > ul{
     width: 23%;
-    height: 150px;
-    margin-bottom: 30px;
-    background-color: orangered;
+    height: 170px;
+    margin-bottom: 15px;
+    background-color: #fff;
     text-align: center;
     padding: 10px;
     position: relative;
+    border: 1px solid #692300;
+    border-radius: 20px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    padding-top: 25px;
+    cursor: pointer;
 }
 .wrap .order_menu .section1 .menubox > ul .type{
     position: absolute;
     top: 5px;
-    right: 60px;
+    right: 55px;
     display: inline-block;
     background-color: transparent;
+}
+.wrap .order_menu .section1 .menubox > ul .type .ICE{
+    color: #fff;
+    background-color: #2aa4f6;
+    padding: 0 10px;
+    border-radius: 20px;
+    
+}
+.wrap .order_menu .section1 .menubox > ul .type .HOT{
+    color: #fff;
+    background-color: #f62a2a;
+    padding: 0 10px;
+    border-radius: 20px;
 }
 .wrap .order_menu .section1 .menubox > ul .item_img{
     background-color: #fff;
@@ -56,19 +93,55 @@ body{}
     width: 80px;
     margin: 0 auto;
     margin-bottom: 8px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 .wrap .order_menu .section1 .menubox > ul li{
     width: 130px;
-    background-color: orange;
+    background-color: rgba(255, 166, 0, 0.5);
     margin-bottom: 50px;
+    border-radius: 20px;
+    font-weight: 600;
 
 }
 .wrap .order_menu .section1 .menubox > ul li >img{
     width: 100%;
 }
 .wrap .order_list{
-    background-color: beige;
-    width: 700px;
+    background-color: #692300;
+    width: 180px;
+    border-radius: 20px;
+    margin: 10px 5px 0;
+}
+.wrap .order_list .section2{
+    
+}
+.wrap .order_list .section2 h2{
+    color: burlywood;
+    text-align: right;
+    margin: 10px;
+}
+.wrap .order_list .section2 .orderbox{
+    text-align: right;
+}
+.wrap .order_list .section2 .orderbox .orders{
+    border-bottom: 1px solid #fff;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    width: 170px;
+    
+}
+.wrap .order_list .section2 .orderbox p{
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.wrap .order_list .section2 .orderbox button{
+    padding: 0 5px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .wrap .order_result{
     display: flex;
@@ -77,6 +150,17 @@ body{}
     top: 700px;
     left: 0;
     width: 900px;
-    height: 40px;
-    background-color: aqua;
+    height: 50px;
+    background-color: wheat;
+    padding: 5px;
+    border-radius: 0 0 20px 20px ;
+}
+.wrap .order_result button{
+    padding: 0 10px;
+    border: 2px solid #692300;
+    background-color: #fff;
+    color: #692300;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
 }
