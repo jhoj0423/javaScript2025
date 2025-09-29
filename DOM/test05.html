@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .high{
+            color: red;
+            font-weight: 600;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span>난 span 태그</span>
+    </h1>
+
+    <p id="text">클릭하면 강조</p>
+
+    <script>
+        let titleChange = document.getElementsByTagName('h1')[0]
+        let p01 = document.createElement('p')
+
+        p01.className='blue';
+        /* classList 여러가지 메소드를 이용하여 추가/삭제/삽입 가능 */
+        p01.classList.remove('active');
+        p01.innerHTML = "난 js로 추가된 p태그야"
+
+        titleChange.appendChild(p01);
+
+        /* toggle은 : 하나의 태그가 2가지 역활을 함 */
+        /* (클릭: 보임, 재클릭: 사라짐) */
+
+        let text = document.getElementById('text');
+        text.onclick = function(){
+            this.classList.toggle("high")
+        }
+    </script>
+</body>
+</html>

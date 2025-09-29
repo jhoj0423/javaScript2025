@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 연습문제</title>
+    <style>
+        .todo-container{
+            width: 600px;
+            margin: 20px auto;
+            background-color: #333;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .todo-container h1{
+            color: rgb(255, 234, 0);
+        }
+        .todo-container .input-area{
+            background-color: #ffff22;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>할 일 목록</h1>
+        <div class="input-area">
+            <input id="task" type="text" placeholder="할 일 입력" />
+            <button onclick="addTask()">추가</button>
+        </div>
+        <ul id="tasks"></ul>
+    </div>
+    
+
+    <script>
+       
+        
+        
+
+        /* 인풋 옆 버튼을 눌렸을때 */
+        function addTask(){
+            let task = document.getElementById('task').value;
+            let tasks = document.getElementById('tasks')
+            
+            let addli = document.createElement('li')
+            let newText = document.createTextNode(task)
+
+            tasks.appendChild(addli).appendChild(newText)
+
+
+
+        }
+        
+       
+    </script>
+</body>
+</html>

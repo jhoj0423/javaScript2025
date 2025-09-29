@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 연습문제 5 ~ 8</title>
+</head>
+<body>
+    <ul id="fu">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+
+    <ul id="list"></ul>
+
+    <ul id="del">
+        <li>삭제될 항목</li>
+        <li>남길 항목</li>
+    </ul>
+
+    <div id="content"></div>
+
+
+    <script>
+        let text05 = document.querySelectorAll('#fu li')
+        let arr05 = Array.from(text05)
+
+        console.log(arr05)
+        console.log(text05[0])
+
+        for(let i = 0; i<arr05.length;i++){
+            text05[i].textContent="과일"
+        }
+        
+        let list = document.getElementById('list');
+        let newli = document.createElement('li')
+
+        let newtext = document.createTextNode("새 항목")
+
+        list.appendChild(newli).appendChild(newtext)
+
+         let del = document.querySelector('#del li')
+         del.remove()
+
+         let text08 = document.getElementById('content')
+         text08.innerHTML=`<p> DOM 연습</p>`
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 기초문제 1~4</title>
+</head>
+<body>
+    <!-- 태그 작성 : 1 ~ 4번 문제 -->
+    <p id="text">안녕하세요</p>
+
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+
+    <strong class="s2">첫 번째 문장</strong>
+    <strong class="s2">두 번째 문장</strong>
+
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+
+    <script>
+
+        
+        let text01 = document.getElementById('text');
+        text01.textContent="DOM 실습 중급"
+        
+
+        /* 배열 처럼 보이지만 [], 사실 배열이 아니다. */
+        let color01 = document.querySelectorAll('.box');
+        console.log(color01)
+        /* box를 배열로 생성 */
+
+        Array.from(color01).forEach((item,index) =>{
+            item.style.backgroundColor ="yellow"
+            item.style.width ="100px"
+            item.style.fontWeight ="600"
+            item.style.textAlign ="center"
+        })
+
+        
+        
+        /* let color03 = document.getElementsByTagName('strong');
+        console.log(color03[1])
+
+        Array.from(color03).forEach((item03,index)=>{
+            item03.style.color="blue"
+        }) */
+
+        let text04 = document.querySelector('li')
+        console.log(text04)
+        text04.textContent="포도"
+
+
+        /* 정리 */
+        /* <strong class="s2">첫 번째 문장</strong> */
+        /* <strong class="s2">두 번째 문장</strong> */
+        /* getElementsByTagName => 배열과 유사함 */
+        /* [object HTMLCollection]s2 */
+        /* forEach()문은 HTMLCollection을 가지고 있지 않음 */
+        /* Array.form()이용하여 생성 가능 */
+        
+        let s2 = document.getElementsByTagName('strong')
+        /* let arr10=Array.from(s2);
+        console.log(s2+'s2')
+        arr10.forEach(item => {
+            item.style.color="red"
+        }) */
+       /* for문 index로 무한 루프 돌림 허용 */
+       for(let i=0;i<s2.length;i++){
+        s2[i].style.color='blue'
+       }
+       /* forEach( 적용안됨) */
+       let s3 = document.getElementsByClassName('s2')
+       /* for문 인덱스로 접근하고,length속성을 가지기 때문에 */
+       /* 접근가능 */
+       for(let i=0;i<s3.length;i++){
+        s3[i].style.fontSize = "30px"
+        s3[i].style.backgroundColor = "skyblue"
+       }
+
+
+
+       /* [object NodeList] */
+       /* javascript 버전 ES6이후 부터 forEach()허용 함 */
+       let s4 = document.querySelectorAll('.s2')
+       console.log(s4)
+       s4.forEach((item,i)=>{
+        item.style.padding="15px"
+        item.style.margin="15px"
+       })
+
+       for(let i=0; i<s4.length;i++){
+        s4[i].style.border="1px solid black"
+       }
+    </script>
+</body>
+</html>

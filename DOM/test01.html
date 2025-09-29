@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 연습</title>
+</head>
+<body>
+    <!-- DOM 연습 태그 -->
+    <!-- <h1>:요소 노드, id ="title" 속성노드 -->
+    <!-- 안녕하세요 : 텍스트 노드 -->
+    <h1 id="title">안녕하세요</h1>
+    <img id="photo" src="/kiosk/ice.png" width="100" alt="">
+    <p id="msg">이 글자는 파란색으로 변경됩니다.</p>
+    <ul id="list">
+        <li id="item">기존항목</li>
+    </ul>
+    <button id="btn">눌러주세요</button>
+    <p id="p1">this is a paragraph</p>
+    <input type="button" value="클릭해주세요" onclick="changeStyle()">
+
+
+    <!-- herf="url" => 자바스크립트 펑션으로 이동 -->
+    <a href="javascript:add()">보여주기</a>
+    <a href="javascript:remove()">감추기</a>
+
+
+
+    <script>
+        let title01= document.getElementById('title');
+
+        /* title01 = "DOM 조각 성공"; */
+        /* 변수에 값을 지정하고 텍스트 노드레 접근하지 않았기 때문에 h1태그의 */
+        /* 텍스트 내용이 변경되지 않았다. */
+        title01.textContent = "DOM 조작 성공"
+        console.log(title01);
+
+        /* 이미지를 변경 */
+        /* img 태그의 src 속성으로 접근해서 수정 요망 */
+        let img01 = document.getElementById('photo').setAttribute("src","/kiosk/hot.png")
+
+        /* 스타일 변경 CSS */
+        let pcolor = document.getElementById('msg');
+        pcolor.style.color = "skyblue"
+        pcolor.style.fontSize = "30px"
+        pcolor.style.fontWeight = "600"
+
+        /* 요소 => 태그추가 => 생성 : createElenment("추가 요소") */
+        /* 요소 추가 순서 */
+        /* 1. createElement('요소이름') */
+        /* 2.텍스트 노드 접근 = '새로운 값' */
+        /* 3.부모요소의 DOM 접근 */
+        /* 4.appendchild('1번의 변수이름') */
+
+        let ulListLI = document.createElement('li');
+        ulListLI.textContent="새 항목"
+        /* li 요소 추가 */
+        document.getElementById('list').appendChild(ulListLI);
+
+        /* 요소 삭제 :remove() => 접근한 DOM 요소만 삭제 할 수 있다.*/
+        document.querySelector('#item').remove();
+
+        /* addEventlistener('click',() => {})로 함수 만들기 */
+        /* 장점 : 태그에 직접 onclick="함수이름()" 정의 하지 않아도 됨 */
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click',()=>{
+            alert("연습")
+        })
+
+        /* 기존의 함수 입력 방식 태그자체 onclick="함수이름()" */
+        function changeStyle(){
+
+           document.querySelector('#p1').style.color = "red"
+            
+        }
+
+
+        /* <a href = "javascript:add()">보기</a> */
+        /* href속성을 통해 직접 자바스크립트로 연동 */
+        function add(){
+            let tables = document.createElement('table');
+            tables.setAttribute('id','target');
+            let trs = document.createElement('tr');
+            let tds = document.createElement('td');
+
+            let textnodes = document.createTextNode('나는 수업중');
+            
+            tables.appendChild(trs).appendChild(tds).appendChild(textnodes);
+
+            /* 기존의 html문거안에서 body요소 노드로 tables를 연결 */
+            document.body.appendChild(tables)
+        }   
+        function remove(){
+            /* 위 add함수에서 생성한 테이블 삭제하기 위해 */
+            /* id ='target' */
+            let target = document.querySelector('#target');
+            console.log(target.parentNode)
+            target.remove()
+            target.parentNode.removeChild(target)
+            
+        }
+
+    </script>
+</body>
+</html>
