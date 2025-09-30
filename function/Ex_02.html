@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 문제</title>
+</head>
+<body>
+    <!-- 2 ~ 6 -->
+    <button id="btn">횟수</button>
+    <div class="test05">
+        <input type="text" id="pass">
+        <button id="chk05">비밀번호 확인</button>
+    </div>
+    <button id="btn06">시간</button>
+    
+    <script>
+        /* 예제 2 */
+        let getDiscountPrice=(price,rate) => {
+            let result = price-(price*rate)
+            return result
+        }
+        console.log(getDiscountPrice(10000,0.1)+': 예제 2')
+
+        /* 예제 3 */
+        let btn = document.getElementById('btn');
+        let count = 0;
+        btn.onclick=()=>{
+           /* 한번 누르면 1번 누적되서 만들어진수가 출력됨 */
+            count++;
+            console.log(count+': 예제 2')
+        }
+        /* console.log(num+': 예제 2') */
+
+        /* 예제 4 */
+        let getTotal=(cart)=>{
+            let result = 0;
+            for(let i=0;i<cart.length;i++){
+                result+=cart[i]
+            }
+            
+            
+            return result;
+        }
+        console.log(getTotal([1000,2000,3000])+': 예제 4')
+
+        /* 예제 5 */
+
+            /* let validatePassword=(pw)=> pw.length >=8 */
+            let validatePassword=(pw)=>{
+                
+                if(pw.length>=8){
+                    return true
+                }else{
+                    return false
+                }
+                
+            }
+            console.log(validatePassword('1234'))
+            console.log(validatePassword('12345678'))
+            
+
+        /* 예제 6 */
+        let btn06 = document.querySelector('#btn06')
+        btn06.addEventListener('click',() => {
+            let now = new Date()
+            console.log('예제 6 : ' + now.toLocaleString())
+            /* 2025. 9. 30. 오후 3:18:09 */
+            console.log('예제 6 : ' + now.toLocaleDateString())
+            /* 2025. 9. 30. */
+            console.log('예제 6 : ' + now.toLocaleTimeString())
+            /* 오후 3:19:01 */
+
+        })
+    </script>
+</body>
+</html>

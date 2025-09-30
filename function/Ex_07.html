@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습문제07</title>
+    
+</head>
+<body>
+    <button id="toggleBtn">이미지 토글</button>
+    <img src="img/pic-2.jpg" id="myImg" style="display: block;">
+
+    <script>
+        let btn = document.getElementById('toggleBtn');
+        let myImg = document.getElementById('myImg')
+
+        
+        btn.addEventListener('click',()=>{
+            
+            if(myImg.style.display==='block'){
+                myImg.setAttribute('style','display: none;')
+                console.log('a')
+            }else{
+                myImg.setAttribute('style','display: block;')
+                console.log('b')
+            }
+
+        })
+    </script>
+</body>
+</html>

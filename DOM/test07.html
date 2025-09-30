@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 연습문제</title>
+    <style>
+        .active{
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test13">
+        <div id="box13" class="active"></div>
+        <button type="button" id="btn13">토글 버튼입니다</button>
+    </div>
+    <div class="test14">
+        <div id="box14" style="width: 100px; height: 100px;"></div>
+    </div>
+    <div class="test15">
+        <a href="https://naver.com" id="link">네이버</a>
+    </div>
+    <div class="test16">
+        <img src="logo.png" id="logo">
+    </div>
+
+    <script>
+        let box13 = document.getElementById('box13')
+        let btn13 = document.getElementById('btn13')
+        btn13.onclick=function(){
+            box13.classList.toggle("active")
+        }
+
+        let box14 = document.getElementById('box14');
+        box14.style.backgroundColor="red"
+
+        let link = document.getElementById('link').setAttribute("href","https://google.com");
+        
+
+        let logo = document.getElementById('logo');
+        console.log(logo.src)
+
+
+
+    </script>
+</body>
+</html>

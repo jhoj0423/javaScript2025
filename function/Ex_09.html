@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습문제09</title>
+</head>
+<body>
+    <input type="number" id="num1">+
+    <input type="number" id="num2">
+    <button id="sumBtn">계산</button>
+    <div id="result"></div>
+
+    <script>
+        
+        let sumBtn =  document.getElementById('sumBtn');
+        let result = document.getElementById('result');
+
+        sumBtn.onclick=()=>{
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+
+            let sum = num1 + num2;
+
+            result.innerHTML=`결과 : ${sum}`
+
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습문제</title>
+</head>
+<body>
+    <div id="container">
+       <img id="img" src="img/girl.png" >
+    </div>
+
+    <script>
+
+        let img = document.getElementById('img');
+        img.addEventListener('mouseover',()=>{
+            img.setAttribute('src','img/boy.png')
+            console.log('a')
+        })
+    </script>
+</body>
+</html>

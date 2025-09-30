@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal 창 만들기</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            font-weight: 300;
+            color: #222;
+            font-size: 15px;
+            line-height: 1.6em;
+        }
+        .content{
+            position: relative;
+        }
+        .content .modal{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 999;
+            visibility: hidden;
+            
+        }
+        .modal.active{
+            visibility: visible;
+        }
+        .content .modal .modal-content{
+            width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+            background-color: #fff;
+            display: flex;
+            overflow: hidden;
+        }
+        .content .modal .modal-content > div{
+            padding: 10px;
+        }
+        .content .modal .modal-content .photo{
+            flex: 1;
+            /* 백그라운드 이미지 삽입 */
+            background-image: url(img/office.jpg);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: cover;
+        }
+        .content .modal .modal-content .description{
+            flex: 2;
+            text-align: center;
+        }
+        /* javaScript 코드 */
+        .content .overlay.active{
+            visibility: visible;
+        }
+        .content .overlay{
+            background-color: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+        }
+        .btn-close{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #999;
+            cursor: pointer;
+        }
+        .btn-close:hover{
+            color: #000;
+        }
+        .desc-content input[type='email']{
+            display: block;/* input,button 은 display 해도 width 100%가 안됨 */
+            width: 100%;
+            text-align: center;
+            padding: 7px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+
+        }
+        .desc-content button{
+            display: block;
+            width: 100%;
+            border: none;
+            background-color: crimson;
+            color: #fff;
+            padding: 7px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+        /*  */
+        
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button class="btn-open">뉴스레터 구독하기</button>
+        <!-- 모달 전체 -->
+        <div class="modal">
+            <div class="modal-content">
+                <div class="photo"></div>
+                <div class="description">
+                    <div class="desc-header">
+                        <h2>지금 다양한 혜택을 받아보세요</h2>
+                        <button class="btn-close">X</button>
+                    </div>
+                    <div class="desc-content">
+                        <input type="email" placeholder="이메일 주소를 입력하세요">
+                        <button type="button">뉴스레이터 구독하기</button>
+                        <p>
+                            스타트업메이트 뉴스룸의 다양한 소식과 혜택을 이메일로 받아
+                            보시려면 구독 신청 해주시기 바랍니다. 스타트업메이트에 대해 알고
+                            싶은 뉴스, 꼭 알아야 할 뉴스를 신속하고 정확하게 전합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 오버레이 : 검은색 투명도 줄 예정 -->
+        <div class="overlay"></div>
+    </div>
+
+    <script>
+        //유스레이터 구독버튼을 누르면 모달창 출력
+        //[X]버튼 누르면 화면이 사라짐
+        //'active'라는 클래스명을 classList.add()를 이용하여 추가하기
+        //classList.remove() 메서드 사용해서 삭제
+
+        let closeBtn = document.querySelector('.btn-close');
+        let openBtn = document.querySelector('.btn-open')
+
+        
+        let modal = document.querySelector('.modal')
+        let overlay = document.querySelector('.overlay')
+
+        /* 구독하기 버튼을 누르면 active 태그를 추가해 준다 */
+        openBtn.onclick=function(){
+            modal.classList.add('active')
+            overlay.classList.add('active')
+
+        }
+
+        /* 닫기 버튼을 눌렸을때 active 태그를 지워준다 */
+        closeBtn.onclick=function(){
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
+        }
+    </script>
+</body>
+</html>

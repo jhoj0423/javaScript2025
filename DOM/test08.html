@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 연습문제 17 ~ 20</title>
+</head>
+<body>
+    <!-- 자식 <p> 요소에서 부모 요소를 찾아 배경색을 "pink"로 바꾸세요 -->
+    <div class="parent">
+        <p>자식요소</p>
+    </div>
+
+    <!-- children을 사용해 첫 번째 <li> 글자를 "첫 번째"로 바꾸세요. -->
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <!-- 두 번째 요소 기준으로 이전 형제 요소의 글자를 "이전"으로 바꾸세요 -->
+    <p>첫 번째</p>
+    <p>두 번째</p>
+    <p>세 번째</p>
+
+    <!-- JS에서 "0"이라는 <li> 요소를 첫 번째 자리에 삽입하세요 -->
+    <ul id="list20">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <script>
+        /* 17번 */
+        let p17 = document.querySelector('.parent p');
+        p17.parentElement.style.backgroundColor="pink"/* 부모찾는 메서드 */
+        p17.style.backgroundColor="yellow"/* 자식 */
+        p17.style.width="100px"
+
+
+        /* 18번 문제 */
+        let list = document.getElementById('list');
+        list.children[0].textContent="첫번째"
+
+        /* 19번째 */
+        let second = document.querySelectorAll('p')[2]
+        console.log(second)
+        second.previousElementSibling.textContent="이전"
+
+        /* 이전 요소를 찾는 맷드 : previousElementSibling */
+
+        /* 20번 */
+
+        let list20 =document.getElementById('list20');
+        let newLi = document.createElement('li')
+        newLi.textContent="0"
+        /* 삽입하는 메서드 : insertBefore */ 
+        console.log(newLi)
+        list20.insertBefore(newLi,list20.firstChild)
+    </script>
+</body>
+</html>
