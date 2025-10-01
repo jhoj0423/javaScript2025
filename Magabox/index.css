@@ -1,0 +1,242 @@
+@charset "UTF-8";
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    color: #fff;
+}
+#num{
+    width: 1100px;
+    text-align: center;
+    margin: 0 auto;
+}
+#section{
+    display: flex;
+    width: 1100px;
+    margin: 30px auto;
+    background-color: #fff;
+    justify-content: center;
+    gap: 20px;
+}
+#section .left_content{
+    text-align: center;
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #aaa;
+}
+/* 오른쪽 컨텐츠 */
+#section .right_content{
+    background-color: #333;
+    color: #fff;
+    margin: 20px;
+    width: 310px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px 20px 0 0;
+    overflow: hidden;
+}
+/* 오른쪽 컨텐츠 제목영역 */
+#section .right_content .title_area{
+    display: flex;
+    border-bottom: 1px solid #aaa;
+    padding: 20px;
+    margin-left: 20px;
+}
+/* 오른쪽 컨텐츠 제목영역 이용나이*/
+#section .right_content .title_area .ageimg{
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+#section .right_content .title_area .ageimg img{
+    width: 20px;
+    height: 20px;
+}
+/* 오른쪽 컨텐츠 제목 영역 타이틀 영역 */
+#section .right_content .title_area .movie_title{
+    margin-left: 10px;
+    text-align: left;
+}
+/* 오른쪽 컨텐츠 제목 영역 타이틀 영역 제목*/
+#section .right_content .title_area .movie_title h2{
+    font-size: 18px;
+}
+/* 오른쪽 컨텐츠 제목 영역 타이틀 영역 텍스트*/
+#section .right_content .title_area .movie_title p{
+    color: #ccc;
+}
+/* 오른쪽 컨텐츠 정보 영역 */
+#section .right_content .info_area{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #aaa;
+    padding: 10px;
+    color: #ccc;
+    font-size: 13px;
+    margin-left: 20px;
+}
+#section .right_content .info_area .info_time{
+    color: #fff;
+}
+#section .right_content .info_area .info_img img{
+    width: 70px;
+    height: 100px;
+}
+/* 오른족 컨텐츠 좌석 영역 */
+#section .right_content .seat_area{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+/* 오른쪽 컨텐츠 좌석 상태 영역 */
+#section .right_content .seat_area .person_type{
+    text-align: left;
+    border: 1px solid #aaa;
+    padding: 10px;
+    width: 130px;
+    border-radius: 10px 0 0 10px;
+}
+/* 오른쪽 컨텐츠 좌석 상태 영역 텍스트와 박스 정렬 */
+#section .right_content .seat_area .person_type ul li {
+    display: flex;
+}
+/* 오른쪽 컨텐츠 좌석 상태 영역 박스 */
+#section .right_content .seat_area .person_type ul li div{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #aaa;
+    margin: 5px;
+    
+}
+/* 각 좌석 상태별 박스 색상 */
+#section .right_content .seat_area .person_type ul li .choice{
+    background-color: blueviolet;
+}
+#section .right_content .seat_area .person_type ul li .finish{
+    background-color: #aaa;
+}
+#section .right_content .seat_area .person_type ul li .impossible{
+    color: #fff;
+    background-color: #aaa;
+    text-align: center;line-height: 10px;
+}
+#section .right_content .seat_area .person_type ul li .nomal{
+    background-color: #555;
+}
+#section .right_content .seat_area .person_type ul li .disabled{
+    background-color: green;
+}
+#section .right_content .seat_area .seat_num{
+    border: 1px solid #aaa;
+    width: 130px;
+    border-radius: 0 10px 10px 0;
+}
+#section .right_content .seat_area .seat_num > p{
+    margin: 10px 0 10px 0;
+}
+/* 오른쪽 좌석 상태영역 선택좌석 */
+#section .right_content .seat_area .seat_num .my_seat{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    
+}
+/* 오른쪽 좌석 상태영역 선택좌석 개당 디자인*/
+#section .right_content .seat_area .seat_num .my_seat .seat{
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 5px;
+}
+/* 오른쪽 좌석 상태영역 선택좌석 개당 디자인 활성화시켰을때*/
+#section .right_content .seat_area .seat_num .my_seat .seat.selc{
+    background-color: #aaa;
+}
+/* 오른족 가격영역 */
+#section .right_content .pay_area{
+    margin-left: 20px;
+}
+#section .right_content .pay_area .count{
+    text-align: left;
+    color: #ccc;
+    padding-top: 15px;
+}
+#section .right_content .pay_area .count .pay{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    
+}
+#section .right_content .pay_area .count .pay > p{
+    padding-top: 10px;
+}
+#section .right_content .pay_area .count .pay .money strong{
+    font-size: 25px;
+    color: turquoise;
+}
+/* 오른쪽 버튼 영역 */
+#section .right_content .btn_group{
+    width: 320px;
+    background-color: #888;
+    display: flex;
+    justify-content: start;
+    
+}
+#section .right_content .btn_group a{
+    display: inline-block;
+    width: 155px;
+    padding: 10px;
+    gap: 0;
+}
+#section .right_content .btn_group #backBtn{
+    background-color: #888;
+}
+#section .right_content .btn_group #nextBtn{
+    background-color: #eee;
+    color: #aaa;
+}
+
+
+
+
+
+
+#seat-table{
+    display: flex;
+    gap: 10px;
+}
+#spel{
+    width: 30px;
+    border-collapse: collapse            
+}
+#spel tr td{
+    border: none;
+    text-align: center;
+}
+#table{
+    border-collapse: collapse;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+}
+#table tr td{
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #02bfd3;
+    width: 30px;
+    height: 30px;
+}
+#table tr td:hover{
+    background-color: yellowgreen;
+}
+.time_menu{
+    display: none;
+}

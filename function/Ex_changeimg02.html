@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3제문습연</title>
     <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
         #container{
             display: flex;
             justify-content: center;
@@ -29,7 +34,10 @@
             width: 400px;
         }
         #detail{
-            display: none;
+            visibility: hidden;
+        }
+        #detail.active{
+            visibility: visible;
         }
     </style>
 </head>
@@ -68,7 +76,7 @@
             </ul>
             <a href="#" id="view">상세 설명 보기</a>
         </div>
-        <!-- <hr /> -->
+        <hr />
         <div id="detail">
             <h2>상품 상세 정보</h2>
             <ul>
@@ -94,19 +102,24 @@
         /* 1. 이미지 3개중 한가지를 클릭하면 선택한 이미지가 커진다 */
         /* 2. 상세보기를 누르면 상세보기 페이지가 나온다*/
 
-        let smallPic = document.querySelectorAll('#small-pic img')
-        console.log(smallPic.length)
-        let cup = document.querySelector('#cup')
-        console.log(cup)
+        let smallPic = document.querySelectorAll('#small-pic img');
+        console.log(smallPic.length);
+        let cup = document.querySelector('#cup');
+        console.log(cup);
         /* 이미지 중 하나를 고른다 -> 클릭한다 -> 클릭한 이미지만  */
         /* 부모요소의 자식요소중 첫 번째로 들어간다 */
 
-        
-
+        let view = document.querySelector('#view');
+        let detail = document.querySelector('#detail');
         for(let i=0; i<smallPic.length;i++){
-            
-            smallPic[i].addEventListener('mouseover',()=>{
+            /* 404function 일대는 오타 보다는 구조 문제 */
+            smallPic[i].addEventListener('mouseover',()=>{/* 함수 실행 안될때 function () {} 를 이용*/
                 console.log(i)
+                /* this는 이벤트가 발생한 대상 요소를 가리킨다. */
+                /* 여기는 smallPic 의 src를 의미한다. */
+                /* this.src는 그 이미지 태그가 가지고 있는 이미지 주소를 꺼내는것 */
+                //let newImg =this.src;
+                //cup.setAttribute('src',newImg);
                 if(i===0){
                     cup.setAttribute('src','img/coffee-pink.jpg')
                     console.log('a')
@@ -117,10 +130,15 @@
                     cup.setAttribute('src','img/coffee-gray.jpg')
                     console.log('c')
                 }
-                
+                /* 위의 이프는 메모리 낭비 */
             })
             
-        }
+        };
+
+        view.onclick=()=>{
+            detail.classList.toggle('active')
+            /* detail.setAttribute('style','visibility: visible') */
+        };
 
         
 
