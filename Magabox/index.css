@@ -29,7 +29,6 @@ a{
     background-color: #fff;
     padding: 20px;
     border: 1px solid #aaa;
-    height: 540px;
 }
 /* 오른쪽 컨텐츠 */
 .right-content{
@@ -193,7 +192,10 @@ a{
     text-align: left;
     color: #ccc;
     padding-top: 15px;
-    margin-bottom: 20px;
+}
+.right-content .pay-area .count span{
+    height: 16px;
+    display: inline-block;
 }
 .right-content .pay-area .count .pay{
     display: flex;
@@ -201,6 +203,7 @@ a{
     color: #fff;
     
 }
+
 .right-content .pay-area .count .pay > p{
     padding-top: 10px;
 }
@@ -239,10 +242,9 @@ a{
     display: flex;
     gap: 10px;
     justify-content: center;
-    padding-top: 10px;
 }
 #spel{
-    width: 40px;
+    width: 30px;
     border-collapse: collapse            
 }
 #spel tr td{
@@ -252,16 +254,16 @@ a{
 
 #table{
     border-collapse: collapse;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     text-align: center;
 }
 #table tr td{
     background-color: #333;
     color: #fff;
     border: 1px solid #02bfd3;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 #table tr td:hover{
@@ -273,7 +275,9 @@ a{
 .no{
     background-color: #333;
 }
-
+#table tr td.noneSeat{
+    background-color: red;
+}
 
 
 
@@ -290,7 +294,6 @@ a{
 #contain-all .header-box{
     width: 1100px;
     margin: 0 auto;
-    margin-top: 20px;
 }
 /* 헤더 상단부 */
 #contain-all .header-box .header-top{
@@ -313,7 +316,6 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px;
 }
 /* 하단 헤더 좌측 */
 #contain-all .header-box .header-bottom .header-bottom-left{
@@ -337,11 +339,24 @@ a{
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 0;
+    left: 5px;
     top: 0px;
     transform: translate(-20%,-20%);
     line-height: 30px;
-
+}
+#contain-all .header-box .header-bottom .header-bottom-left .fa-solid.fa-magnifying-glass.active::before{
+    content: '\f00d';
+    font-family: 'Font Awesome 5 Free';
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    transform: translate(-20%,-20%);
+    line-height: 30px;
 }
 /* 헤더 하단 중앙 */
 #contain-all .header-box .header-bottom .header-bottom-center{
@@ -353,6 +368,7 @@ a{
     font-size: 20px;
     font-weight: 500;
     color: black;
+    padding-bottom: 15px;
 }
 /* 헤더 하단 우측 */
 #contain-all .header-box .header-bottom .header-bottom-right{
@@ -365,6 +381,21 @@ a{
     font-size: 22px;
     cursor: pointer;
     margin-top: 30px;
+    position: relative;
+}
+#contain-all .header-box .header-bottom .header-bottom-right .fa-solid.fa-user.active::before{
+    content: '\f00d';
+    font-family: 'Font Awesome 5 Free';
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    transform: translate(-20%,-20%);
+    line-height: 32px;
 }
 /* 헤더 1번 토글 */
 .header-toggle-1-on{
@@ -471,11 +502,13 @@ a{
 .header-toggle-2-on{
     display: none;
     background-color: #352461;
+    height: 400px;
 }
 .header-toggle-2-on.active{
     display: block;
     position: absolute;
     width: 100%;
+    z-index: 10;
 }
 .header-toggle-2-on .header-toggle-2-container{
     margin: 0 auto;
@@ -518,9 +551,11 @@ a{
     text-decoration: underline;
 }
 .header-toggle-2-on .header-toggle-2-container .header-toggle-2-right{
+    position: absolute;
+    right: -150px;
     margin-top: 110px;
-    margin-left: 150px;
     position: relative;
+    text-align: left;
 }
 .header-toggle-2-on .header-toggle-2-container .header-toggle-2-right input{
     background-color: transparent;
@@ -549,17 +584,23 @@ a{
     display: none;
     background-color: #333;
 }
-.header-toggle-3-on .header-toggle-2-container{
+.header-toggle-3-on.active{
+    display: block;
+    z-index: 110;
+    position: absolute;
+    width: 100%;
+}
+.header-toggle-3-on .header-toggle-3-container{
     width: 1100px;
     margin: 0 auto;
     text-align: center;
     padding: 25px 0;
 }
-.header-toggle-3-on .header-toggle-2-container p{
+.header-toggle-3-on .header-toggle-3-container p{
     color: white;
     margin-bottom: 15px;
 }
-.header-toggle-3-on .header-toggle-2-container button{
+.header-toggle-3-on .header-toggle-3-container button{
     border: 1px solid white;
     border-radius: 5px;
     padding: 4px 30px;
@@ -569,23 +610,77 @@ a{
     margin-right: 10px;
     cursor: pointer;
 }
-.header-toggle-3-on .header-toggle-2-container a{
+.header-toggle-3-on .header-toggle-3-container a{
     color: rgb(176, 176, 176);
     font-size: 13px;
     text-decoration: underline;
 }
 /* 호버 할 때 나와야하는 nav 밑 menus */
+.menu-box{
+    width: 100%;
+    height: 40px;
+    background-color: #352461;
+    position: absolute;
+    align-content: center;
+    display: none;
+}
+.menu-box.active{
+    display: block;
+}
 .menu-box-1{
     display: none;
+    margin-left: 450px;
+}
+.menu-box-1.active{
+    display: block;
 }
 .menu-box-2{
     display: none;
+    margin-left: 540px;
+}
+.menu-box-2.active{
+    display: block;
+}
+.menu-box-2 a{
+    margin-right: 20px;
 }
 .menu-box-3{
     display: none;
+    margin-left: 700px;
+}
+.menu-box-3.active{
+    display: block;
+}
+.menu-box-3 a{
+    margin-right: 20px;
 }
 .menu-box-4{
     display: none;
+    margin-left: 970px;
+}
+.menu-box-4.active{
+    display: block;
+}
+.menu-box-4 a{
+    margin-right: 20px;
+}
+
+.menu-box-5{
+    display: none;
+    margin-left: 1230px;
+}
+.menu-box-5.active{
+    display: block;
+}
+.menu-box-5 a{
+    margin-right: 20px;
+}
+.menu-box-1 a:hover,
+.menu-box-2 a:hover,
+.menu-box-3 a:hover,
+.menu-box-4 a:hover,
+.menu-box-5 a:hover{
+    text-decoration: underline;
 }
 
 /* 섹션 박스 */
@@ -614,7 +709,7 @@ a{
 #contain-all .section-box{
     width: 1100px;
     margin: 0 auto;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
     padding: 30px 0;
     
 }
@@ -628,6 +723,9 @@ a{
 }
 #contain-all .section-box .section-left{
     width: 740px;
+}
+#contain-all .section-box .section-left .section-left-bottom .left-content{
+    height: 520px; 
 }
 #contain-all .section-box .section-left-top{
     display: flex;
@@ -693,9 +791,9 @@ a{
 /* 푸터라인 */
 #contain-all .footer-line-make{
     background-color: rgb(226, 226, 226);
-    position: fixed;
     width: 100%;
     bottom: 0;
+    z-index: 80;
 }
 
 /* 푸터 박스 */
@@ -768,8 +866,13 @@ a{
     position: fixed;
     background-color: #333;
     width: 100%;
-    bottom: 160px;
+    bottom: 0px;
     left: 0;
+}
+.footer-toggle-on.active{
+    display: block;
+    position: absolute;
+    z-index: 20;
 }
 .footer-toggle-on .footer-toggle-container{
     width: 1100px;
@@ -822,3 +925,86 @@ a{
     color: rgb(1, 205, 212);
     text-decoration: underline;
 }
+
+/* 모달------------------------------ */
+#contain-all .modal{
+    padding-bottom: 20px;
+    width: 320px;
+    background-color: white;
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+#contain-all .modal .modal-top{
+    text-align: center;
+    color: white;
+    background-color: #352461;
+    padding: 10px 0;
+}
+#contain-all .modal .modal-middle{
+    padding: 20px;
+    color: #333;
+}
+#contain-all .modal .modal-middle p{
+    font-size: 14px;
+}
+#contain-all .modal .modal-bottom{
+    text-align: center;
+}
+#contain-all .modal .modal-bottom #modal-close-btn{
+    width: 55px;
+    padding: 5px;
+    background-color: #352461;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#contain-all .modal .modal-bottom #modal-close-btn:hover{
+    background-color: #241a3d;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-top: 135px;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    display: none;
+}
+.modal.active,
+.overlay.active{
+    display: block;
+}
+.modal-oneuse{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 740px;
+    height: 520px;
+    position: absolute;
+    text-align: center;
+    padding-top: 20px;
+    z-index: 1;
+}
+.modal-oneuse p{
+    color: white;
+    font-size: 20px;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes moving{
+    0%{transform: translateY(0);}
+    50%{transform: translateY(-7px);}
+    100%{transform: translateY(0);}
+}
+.modal-oneuse p i{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    animation: moving 3s ease-in-out infinite;
+}
+
