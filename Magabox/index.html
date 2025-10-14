@@ -171,7 +171,7 @@
                 <button class="people">메가박스 관객순</button>
                 <div class="header-toggle-2-flexbox">
                     <div class="header-toggle-2-left">
-                        <img src="img/어쩔수가없다.jpg">
+                        <img id="change-img" src="img/어쩔수가없다.jpg">
                         <ol>
                             <li class="booked-list1">어쩔수가없다</li>
                             <li class="booked-list2">극장판 체인소 맨:레제편</li>
@@ -613,52 +613,9 @@
         let modalText = document.querySelector('#modal-text')
         let modalCloseBtn = document.querySelector('#modal-close-btn');
 
-        let Spelling=['A','B','C','D','E','F','G','H','I','J']
-
-            let SpellingResult=''
-            for(let i=0;i<Spelling.length;i++){
-                SpellingResult+=`<tr><td>${Spelling[i]}</td></tr>`
-            }
-
-            spel.innerHTML=SpellingResult;
-
-        /* 좌석 옆 알파넷 나열 */
         
-            
-        
-            let num=1;
-            /* 위 seat배열 안에 좌석 번호 배열넣어주기 */
-            for(let i=0; i<seat.length ;i++){
-                for(let j=0; j<seat[i].length;j++){
-                    seat[i][j]=num++
-                }
-                num=1
-            };
-            console.log(seat);
 
-            /* 태이블 요소 가져오기 */
-            let table = document.getElementById('table');
-
-            let tableResult = ''
-            
-                /* for(let i=0; i<seat.length;i++){
-                    tableResult += `<tr>`
-                    for(let j=0; j<seat[i].length; j++){
-                        
-                        tableResult+=`<td onclick="chk(${i},${j})">${seat[i][j]}</td>`
-                        let number01 = i
-                        let number02 = j
-                    }
-                    tableResult += `</tr>`
-                } */
-            
-            
-            /* console.log(tableResult) */
-            /* table.innerHTML=tableResult; */
-        
-        /* 테이블 요소에서 좌표 */
-
-
+        /* 플러스 버튼 */
         function plus(num){
                 
                 if(num === 1 && total<8){
@@ -680,20 +637,7 @@
             discount.innerHTML=discountCount;
             if(total===1){
                 modalOneuse.style.display = 'none';
-                table.innerHTML='_'
-                for(let i=0; i<seat.length;i++){
-                    tableResult += `<tr>`
-                    for(let j=0; j<seat[i].length; j++){
-                        
-                        if(j%2===0){
-                            tableResult+=`<td class="noneSeat")">${seat[i][j]}</td>`
-                        }else{
-                            tableResult+=`<td onclick="chk(${i},${j})">${seat[i][j]}</td>`
-                        }
-                    }
-                    tableResult += `</tr>`
-                }
-                table.innerHTML=tableResult;
+                
             }else if(total < 8){
                 
             }else{
@@ -722,8 +666,9 @@
                 modalOn.style.display = 'block';
                 overlay.style.display = 'block';
             }
-
+            return total;
         }
+        /* 마이너스 버튼 */
         function minus(num){
                 if(num === 1 && adultCount>0){
                     adultCount--
@@ -747,7 +692,67 @@
         
         console.log('토탈'+total)
        
+        let Spelling=['A','B','C','D','E','F','G','H','I','J']
+
+            let SpellingResult=''
+            for(let i=0;i<Spelling.length;i++){
+                SpellingResult+=`<tr><td>${Spelling[i]}</td></tr>`
+            }
+
+            spel.innerHTML=SpellingResult;
+
+        /* 좌석 옆 알파넷 나열 */
         
+            
+        
+            let num=1;
+            /* 위 seat배열 안에 좌석 번호 배열넣어주기 */
+            for(let i=0; i<seat.length ;i++){
+                for(let j=0; j<seat[i].length;j++){
+                    seat[i][j]=num++
+                }
+                num=1
+            };
+            console.log(seat);
+
+            /* 태이블 요소 가져오기 */
+            let table = document.getElementById('table');
+            /* total=1 */
+            let tableResult = ''
+            if(total===1){
+                plus()
+                for(let i=0; i<seat.length;i++){
+                    tableResult += `<tr>`
+                    for(let j=0; j<seat[i].length; j++){
+                        if(j%2===0){
+                            tableResult+=`<td class="noneSeat">-</td>`
+                        }else{
+                            tableResult+=`<td onclick="chk(${i},${j})">${seat[i][j]}</td>`
+                        }
+                        let number01 = i
+                        let number02 = j
+                    }
+                    tableResult += `</tr>`
+                } 
+
+            }else{
+                plus()
+            
+                for(let i=0; i<seat.length;i++){
+                    tableResult += `<tr>`
+                    for(let j=0; j<seat[i].length; j++){
+                        
+                        tableResult+=`<td onclick="chk(${i},${j})">${seat[i][j]}</td>`
+                        let number01 = i
+                        let number02 = j
+                    }
+                    tableResult += `</tr>`
+                } 
+            
+            }
+             table.innerHTML=tableResult;
+        
+        /* 테이블 요소에서 좌표 */
 
        //-----------------------------------------------토글------------------------------------------------
 
@@ -966,18 +971,23 @@
         let money = document.querySelector('.money strong');
         let moneyResult = 0;
         let superI = 0;
+        let powerI01 = 0;
+        let powerI02 = 0;
+        let powerI03 = 0;
+        let powerI04 = 0;
         let payPeople = document.querySelector('.count > span')
         let payPeopleResult01 = '';
         let payPeopleResult02 = '';
         let payPeopleResult03 = '';
         let payPeopleResult04 = '';
+        let nextBtn =document.getElementById('nextBtn')
         console.log(payPeople)
 
         console.log(seatChoice02[0])
 
         function chk(number01,number02){
            /* 좌석 클릭시 선택좌석에 클릭한 좌석번호  */
-            console.log(seatChoice02[(number01*10)+number02].classList.value)
+            
             if(seatChoice02[(number01*10)+number02].classList.value==='active'){/* 좌석 중복 선택시 초기화 */
                 seatChoice02[(number01*10)+number02].classList.remove('active')
                 for(let i=0;i<8;i++){
@@ -987,11 +997,86 @@
                     }
                 }
                 result.splice(result.indexOf(Spelling[number01]+seat[number01][number02]),1)
+                
+                for(let i=0; i<1;i++){
+                    if(discountCount !=0 && discountCount-powerI01>0){
+                        moneyResult-=8000
+                        superI--
+                        powerI01++
+                        
+                    }else if(seniorCount !=0 && seniorCount-powerI02>0){
+                        moneyResult-=9000
+                        superI--
+                        powerI02++
+                        
+                    }else if(teenCount !=0 && teenCount-powerI03>0){
+                        moneyResult-=14000
+                        superI--
+                        powerI03++
+                    }
+                    else if(adultCount !=0 && adultCount-powerI04>0){
+                        moneyResult-=16000
+                        superI--
+                        powerI04++
+                    }else{
+
+                    }
+                    
+                }
+                
+                if(superI===0){
+                    nextBtn.style.backgroundColor="#aaa"
+                    nextBtn.style.color="#eee"
+                }else{
+
+                }
             }else if(result.length<8 && result.length<total){/* 선택 한적 없는 좌석 선택시 */
                 result.push(`${Spelling[number01]+seat[number01][number02]}`)
                 seatChoice02[(number01*10)+number02].classList.add('active')
                 mySeat[result.length-1].textContent = `${Spelling[number01]+seat[number01][number02]}`
                 mySeat[result.length-1].style.backgroundColor="blueviolet"
+                for(let i=0; i<result.length;i++){
+                    if(adultCount != 0 && adultCount-superI>0){
+                        moneyResult+=16000
+                        superI++
+                        payPeopleResult01=`성인${adultCount}`
+                    }else if(teenCount != 0 && teenCount-(superI-adultCount)>0){
+                        moneyResult+=14000
+                        superI++
+                        payPeopleResult02=`청소년${teenCount}`
+                    }else if(seniorCount !=0 && seniorCount-(superI-(adultCount+teenCount))>0){
+                        moneyResult+=9000
+                        superI++
+                        payPeopleResult03=`경로${seniorCount}`
+                    }else if(discountCount !=0 && discountCount-(superI-(adultCount+teenCount+seniorCount))>0){
+                        moneyResult+=8000
+                        superI++
+                        payPeopleResult04=`우대${discountCount}`
+                    }else{
+
+                    }
+                    break;
+                }
+                if(superI>0){
+                    nextBtn.style.backgroundColor="yellowgreen"
+                    nextBtn.style.color="#fff"
+                }else{
+
+                }
+                for(let i=0; i<result.length;i++){
+                    if(adultCount != 0 && adultCount-superI>0 && powerI04>0){
+                        powerI04--
+                    }else if(teenCount != 0 && teenCount-(superI-adultCount)>0 && powerI03>0){
+                        powerI03--
+                    }else if(seniorCount !=0 && seniorCount-(superI-(adultCount+teenCount))>0 && powerI02>0){
+                        powerI02--
+                    }else if(discountCount !=0 && discountCount-(superI-(adultCount+teenCount+seniorCount))>0 && powerI01>0){
+                        powerI01--
+                    }else{
+
+                    }
+                    break;
+                }
             }else{
                 /* 좌석 초과 선택 모달 */
                 modalOneuse.style.display = 'none';
@@ -1000,35 +1085,13 @@
                 overlay.style.display = 'block';
             }
             
-            console.log(superI)
-            for(let i=0; i<result.length;i++){
-                if(adultCount != 0 && adultCount-superI>0){
-                    moneyResult+=16000
-                    superI++
-                    payPeopleResult01=`성인${adultCount}`
-                }else if(teenCount != 0 && teenCount-(superI-adultCount)>0){
-                    moneyResult+=14000
-                    superI++
-                    payPeopleResult02=`청소년${teenCount}`
-                }else if(seniorCount !=0 && seniorCount-(superI-(adultCount+teenCount))>0){
-                    moneyResult+=9000
-                    superI++
-                    payPeopleResult03=`경로${seniorCount}`
-                }else if(discountCount !=0 && discountCount-(superI-(adultCount+teenCount+seniorCount))>0){
-                    moneyResult+=8000
-                    superI++
-                    payPeopleResult=`우대${discountCount}`
-                }else{
-
-                }
-                break;
-            }
+            console.log(superI+'수퍼아이')
+            
             money.innerHTML=moneyResult;
             
 
             payPeople.innerHTML=`${payPeopleResult01} ${payPeopleResult02} ${payPeopleResult03} ${payPeopleResult04}`;
 
-            tableAll()
         }
 
         
@@ -1042,6 +1105,10 @@
             discountCount = 0;
             moneyResult=0;
             superI=0;
+            powerI01=0;
+            powerI02=0;
+            powerI03=0;
+            powerI04=0;
             payPeople.innerHTML=''
             payPeopleResult01=''
             payPeopleResult02=''
@@ -1058,7 +1125,9 @@
                 mySeat[i].textContent="-"
                 mySeat[i].style.backgroundColor="#333"
             }
-             money.textContent="0"
+            money.textContent="0"
+            nextBtn.style.backgroundColor="#aaa"
+            nextBtn.style.color="#eee"
             plus()
             chk()
         })

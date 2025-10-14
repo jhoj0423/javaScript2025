@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+        body{
+            text-align: center;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            text-align: center;
+            line-height: 200px;
+            display: none;
+            margin: 0 auto;
+            
+        }
+    </style>
+    <script src="custom.js"></script>
+</head>
+<body>
+    <a href="#" class="btn">보이기/감추기</a>
+    <div>Box</div>
+
+    <script>
+        //요즘에 방식으로 HTML 모드 로드된 뒤 실행 코드
+        $(function(){
+            /* 보이게 */
+            $('.btn').mouseenter(function(){
+                $('div').show()
+            })
+            $('.btn').mouseleave(function(){
+                $('div').hide();
+            })
+        })
+    </script>
+</body>
+</html>

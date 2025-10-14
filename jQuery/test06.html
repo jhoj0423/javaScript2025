@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .btn{
+            width: 300px;
+        }
+        .btn span{
+            background-color: #ccc;
+            padding: 5px;
+            width: 100px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn span.active{
+            background-color: #fff;
+            border: 1px solid #000;
+        }
+    </style>
+    <script src="custom.js"></script>
+</head>
+<body>
+    <div class="btn">
+        <span>공지사항</span>
+        <span>갤러리</span>
+    </div>
+    
+
+    <script>
+        //요즘에 방식으로 HTML 모드 로드된 뒤 실행 코드
+        $(function(){
+            /* 보이게 */
+            $('.btn span').click(function(){
+                $(this).addClass('active')
+                $(this).siblings().removeClass('active')
+            })
+            
+        })
+    </script>
+</body>
+</html>

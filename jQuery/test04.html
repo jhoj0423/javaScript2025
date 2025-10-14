@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+        body{
+            text-align: center;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            text-align: center;
+            line-height: 200px;
+            display: none;
+            margin: 0 auto;
+            color: #fff;
+            margin-top: 30px;
+        }
+        .container{
+            width: 600px;
+            height: 600px;
+            margin: 20px auto;
+        }
+        .container a{
+            color: #000;
+            background-color: #ccc;
+            border-radius: 10px;
+            padding: 5px 10px;
+            
+        }
+        
+    </style>
+    <script src="custom.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="#" class="btn-show">보이기</a>
+        <a href="#" class="btn-hide">감추기</a>
+        <a href="#" class="btn-toggle">토글</a>
+        <div class="box">Box</div>
+    </div>
+    
+
+    <script>
+        //요즘에 방식으로 HTML 모드 로드된 뒤 실행 코드
+        $(function(){
+            /* 보이게 */
+            $('.btn-show').click(function(){
+                $('.box').fadeIn('slow')
+            })
+            $('.btn-hide').click(function(){
+                $('.box').fadeOut('slow');
+            })
+            $('.btn-toggle').click(function(){
+                $('.box').fadeToggle('slow');
+            })
+        })
+    </script>
+</body>
+</html>
